@@ -1,0 +1,14 @@
+.classpath
+.project
+.buildpath
+.settings/
+.metadata/
+logs/
+bin/
+target/
+build/
+test-output/
+/api/deployment_packages
+.gradle
+testng.xml
+*.scssc
