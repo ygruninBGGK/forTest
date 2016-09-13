@@ -28,7 +28,7 @@ public class FirstTryTest {
 		FirefoxDriver driver = new FirefoxDriver();
 		baseUrl = "http://beta.xe.com/?";
 		driver.get(baseUrl);
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 		
 		
     }
