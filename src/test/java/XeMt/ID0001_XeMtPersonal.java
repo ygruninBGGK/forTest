@@ -1,4 +1,4 @@
-package onexeMt;
+package XeMt;
 
 import org.testng.annotations.Test;
 
@@ -37,7 +37,7 @@ import org.testng.annotations.Test;
 
 
 
-public class ID0001_XeMt {
+public class ID0001_XeMtPersonal {
 	
 	private String baseUrl;
 	private FirefoxDriver driver;
@@ -239,6 +239,7 @@ public class ID0001_XeMt {
 	      List<WebElement> p = driver.findElements(By.cssSelector(".joinNow p")) ;
 		  String text11 =  p.get(1).getText();
 		  Assert.assertEquals(text11,"See how fast and easy your money transfer can be:");
+		  
 	
 	}
 	
