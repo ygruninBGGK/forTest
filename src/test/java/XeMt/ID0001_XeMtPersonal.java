@@ -50,7 +50,7 @@ public class ID0001_XeMtPersonal {
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal")String browser) throws MalformedURLException, InterruptedException {	
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxWin")String browser) throws MalformedURLException, InterruptedException {	
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
 		home =  PageFactory.initElements(driver, WhyXePage.class);
@@ -121,31 +121,31 @@ public class ID0001_XeMtPersonal {
 		  //C5223	check the content under " How it works" tab in personal function for 5 regions which are US,CA,UK,AU,NZ
 		  // Check the content for Nz
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/nz/"+"#howitworks");
-		  Thread.sleep(1000);
+		  
 		  checkContent1();
 		  
 		  // Check the content for AU
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/au/"+"#howitworks");
-		  Thread.sleep(1000);
+		 
 		  checkContent1();
 		  
 		  
 		  // check the content for ca
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#howitworks");
-		   Thread.sleep(1000);
+		  
 		   checkContent1();
 		  
 		   
 		  
 		  //check the content for  US
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#howitworks");
-		  Thread.sleep(1000);
+		 
 		  checkContent1();
 		  
 		  
 		 //check the content for UK
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/uk/"+"#howitworks");
-		  Thread.sleep(1000);
+		 
 		  checkContent1();
 		  String text9 = home.LargeTransferSection_UI.getText();
 	      Assert.assertEquals(text9,"Online Money Transfers"+"\n"+"We're proud of the fact that we’re one of the quickest and easiest ways to send money around the world."+"\n"+"Benefits include:"+"\n"+"Fee free transfers."+"\n"+"Highly competitive exchange rates."+"\n"+"Send money, and track payments 24/7 via your mobile, tablet or PC."+"\n"+"Norton security trusted by 97 of the World's 100 largest banks so you’re fully protected online."+"\n"+"Used to transfer over $150 billion by customers in 127 countries.");
@@ -232,7 +232,8 @@ public class ID0001_XeMtPersonal {
 	
 	
 	//Content - How it works
-	private void checkContent1(){
+	private void checkContent1() throws InterruptedException{
+		 Thread.sleep(1000);
 		 general.waitElementIsPresented(home.heading_UI.get(1));
 		  String text8 =  home.heading_UI.get(1).getText();
 		  Assert.assertEquals(text8,"Fast and really easy to use");
@@ -250,9 +251,9 @@ public class ID0001_XeMtPersonal {
 	
 	}
 	
-	private void checkContent2(){
+	private void checkContent2() throws InterruptedException{
 		
-		   
+		  Thread.sleep(1000); 
 		  home.tabsList_UI.get(2).findElement(By.cssSelector("a")).click();
 		  List<WebElement> h1 = driver.findElements(By.cssSelector(".tabPane h1")) ;
 		  String text12 =  h1.get(2).getText();

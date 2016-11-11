@@ -7,7 +7,7 @@
   <test name="Test">
     <classes>
       <class name="XeMt.ID0001_XeMtPersonal"/>
-     <!--  <class name="XeMt.ID0002_XeMtBusiness"/> -->
+    <!--   <class name="XeMt.ID0004_XemtPersonalLastTabs"/> -->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
