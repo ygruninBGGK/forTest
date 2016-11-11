@@ -44,7 +44,7 @@ public class WhyXePage {
       
       
       @FindBy(css = ".tabPane h1")
-	  public List<WebElement> heading;
+	  public List<WebElement> heading_UI;
    
         
 	
@@ -52,9 +52,31 @@ public class WhyXePage {
       @FindBy(css = ".whyXEMainContent")
 	  public WebElement text;
       
-     
-	
+     // tabs li 
+      @FindBy(css = ".tabs li")
+	   public List<WebElement> tabsList_UI;
 		
+     //Large Transfre Section
+      @FindBy(css = ".largeTransferSection")
+	   public WebElement LargeTransferSection_UI;
+      
+     // Tabs Pane
+      @FindBy(css = ".tabPane p")
+	   public List<WebElement> TabPane_UI;
+      
+      // Join Now Make Transfer
+      @FindBy(css = ".joinNow.makeTransfer")
+	   public WebElement JoinNowmakeTransfer_UI;
+      
+      // Fee Free Promo
+      @FindBy(css = ".feeFree-promo")
+	   public WebElement FeefreePromo_UI;
+      // JoIn NOw
+      @FindBy(css = ".joinNow p")
+	   public List<WebElement> joinNow_UI;
+      // Region
+      @FindBy(css = ".region li")
+	   public List<WebElement> region_UI;
 }
 
 	

@@ -2,6 +2,8 @@ package XeMt;
 
 import org.testng.annotations.Test;
 
+import utils.Browsers;
+import utils.General;
 import xemt_UI.WhyXePage;
 
 import java.lang.reflect.Array;
@@ -11,6 +13,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -40,33 +43,33 @@ import org.testng.annotations.Test;
 public class ID0001_XeMtPersonal {
 	
 	private String baseUrl;
-	private FirefoxDriver driver;
+	private WebDriver driver;
 	private WhyXePage home;
+	private General general;
 	
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://mlo04.xe.com") String url, @Optional("firefox")String browser) throws MalformedURLException, InterruptedException {	
-		driver = new FirefoxDriver();
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal")String browser) throws MalformedURLException, InterruptedException {	
+		driver = Browsers.getDriver(browser);
+		general = PageFactory.initElements(driver, General.class);
 		home =  PageFactory.initElements(driver, WhyXePage.class);
-		baseUrl = "http://mlo04.xe.com/";
-		
-		
+		baseUrl = url;
 	}
 	
 	
 	  @Test
-	  public void a_redirectToXeMt() {
+	  public void a_redirectToXeMt() throws InterruptedException {
 		 
 		  driver.get(baseUrl);
-		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		  general.wait10sec();
 		  driver.get(baseUrl+"/xemoneytransfer/");
-		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		  general.wait10sec();
 		  
 		  //C5234	Click on Personal Link and check the webpage navigating properly or not
 		  //C5250	Click on Personal Link and check the webpage navigating properly or not
 		  
-		  driver.findElement(By.cssSelector(".active")).click();
+		  home.personalbtn.click();
 		  driver.get(baseUrl+"/xemoneytransfer/");
 		  
 		  
@@ -74,75 +77,78 @@ public class ID0001_XeMtPersonal {
 		  // Check the content for Nz
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/nz/");
 		  String text = home.text.getText();
-		  Assert.assertEquals(text, "XE Money Transfer - connecting the world through currency exchange."+"\n"+ "XE Money Transfer is the quick, easy, and secure way to transfer money around the globe. With competitive exchange rates you can book international payments 24/7."+"\n"+ "Every year, over 33,000 people and 2,000 businesses trust us to make global payments, send funds to family, pay international businesses, and buy foreign real estate. At XE, we're not just passionate about saving you money, we're proud of our exceptional service as we connect the world through currency exchange.");  
-		  String txt01 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
-		  Assert.assertEquals(txt01, "Great rates");
+		  Assert.assertEquals(text, "XE Money Transfer - connecting the world through currency exchange."+"\n"+ "XE Money Transfer is the quick, easy, and secure way to transfer money around the globe. With competitive exchange rates you can book international payments 24/7."+"\n"+ "Every year, over 33,000 people and 2,000 businesses trust us to make global payments, send funds to family, pay international businesses, and buy foreign real estate. At XE, we're not just passionate about saving you money, we're proud of our exceptional service as we connect the world through currency exchange."); 
+	      String txt05 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
+		  Assert.assertEquals(txt05, "Great rates");
 		  checkContent();
 		  
 		  // Check the content for AU
 		  driver.get(baseUrl+"/xemoneytransfer"+"/au/");
 		  String text4 = home.text.getText();
 		  Assert.assertEquals(text4, "Don't let the banks cash in on your international money transfers"+"\n"+ "XE Money Transfer is the quick, easy, and secure way to transfer money around the globe. With competitive exchange rates you can book international payments 24/7."+"\n"+ "Every year, over 33,000 people and 2,000 businesses trust us to make global payments, send funds to family, pay international businesses, and buy foreign real estate. At XE, we're not just passionate about saving you money, we're proud of our exceptional service as we connect the world through currency exchange."); 
-		  String txt02 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
-		  Assert.assertEquals(txt02, "Great rates");
+		  String txt07 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
+		  Assert.assertEquals(txt07, "Great rates");
 		  checkContent();
 		  
 		  // check the content for ca
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/");
 		   String text3 = home.text.getText();
 		   Assert.assertEquals(text3, "XE Money Transfer - connecting the world through currency exchange."+"\n"+ "XE Money Transfer is the quick, easy, and secure way to transfer money around the globe. With competitive exchange rates you can book international payments 24/7."+"\n"+ "Every year, over 33,000 people and 2,000 businesses trust us to make global payments, send funds to family, pay international businesses, and buy foreign real estate. At XE, we're not just passionate about saving you money, we're proud of our exceptional service as we connect the world through currency exchange.");  
-		   String txt03 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
-		   Assert.assertEquals(txt03, "Great rates");
+		   String txt06 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
+		   Assert.assertEquals(txt06, "Great rates");
 		   checkContent();
 		    
 		  
 		  //check the content for  US
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/us/");
-		  String text2 = driver.findElement(By.cssSelector(".whyXEMainContent")).getText();
+		  String text2 = home.text.getText();
 		  Assert.assertEquals(text2, "Don't let the banks cash in on your international money transfers"+"\n"+ "XE Money Transfer is the quick, easy, and secure way to transfer money around the globe. With competitive exchange rates you can book international payments 24/7."+"\n"+ "Every year, over 33,000 people and 2,000 businesses trust us to make global payments, send funds to family, pay international businesses, and buy foreign real estate. At XE, we're not just passionate about saving you money, we're proud of our exceptional service as we connect the world through currency exchange.");  
-		  String txt04 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
-		  Assert.assertEquals(txt04, "Bank beating");
+		  String txt08 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
+		  Assert.assertEquals(txt08, "Bank beating");
 		  checkContent();
 		 
 		  
 		 //check the content for UK
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/uk/");
-		  String text5 = driver.findElement(By.cssSelector(".whyXEMainContent")).getText();
+		  String text5 = home.text.getText();
 		  Assert.assertEquals(text5, "Don't let the banks cash in on your international money transfers"+"\n"+ "XE Money Transfer is the quick, easy, and secure way to transfer money around the globe. With competitive exchange rates you can book international payments 24/7."+"\n"+ "Every year, over 33,000 people and 2,000 businesses trust us to make global payments, send funds to family, pay international businesses, and buy foreign real estate. At XE, we're not just passionate about saving you money, we're proud of our exceptional service as we connect the world through currency exchange.");  
-		  String txt05 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
-		  Assert.assertEquals(txt05, "Bank beating");
+		  String txt09 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
+		  Assert.assertEquals(txt09, "Bank beating");
 		  checkContent();
 		  
 		  
 		  
 		  //C5223	check the content under " How it works" tab in personal function for 5 regions which are US,CA,UK,AU,NZ
 		  // Check the content for Nz
-		  driver.get(baseUrl+"/xemoneytransfer/"+"/nz/");
+		  driver.get(baseUrl+"/xemoneytransfer/"+"/nz/"+"#howitworks");
+		  Thread.sleep(1000);
 		  checkContent1();
 		  
 		  // Check the content for AU
-		  driver.get(baseUrl+"/xemoneytransfer/"+"/au/");
+		  driver.get(baseUrl+"/xemoneytransfer/"+"/au/"+"#howitworks");
+		  Thread.sleep(1000);
 		  checkContent1();
 		  
 		  
 		  // check the content for ca
-		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/");
+		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#howitworks");
+		   Thread.sleep(1000);
 		   checkContent1();
 		  
 		   
 		  
 		  //check the content for  US
-		  driver.get(baseUrl+"/xemoneytransfer/"+"/us/");
+		  driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#howitworks");
+		  Thread.sleep(1000);
 		  checkContent1();
 		  
 		  
 		 //check the content for UK
-		  driver.get(baseUrl+"/xemoneytransfer/"+"/uk/");
+		  driver.get(baseUrl+"/xemoneytransfer/"+"/uk/"+"#howitworks");
+		  Thread.sleep(1000);
 		  checkContent1();
-		  String text9 = driver.findElement(By.cssSelector(".largeTransferSection")).getText();
-	      Assert.assertEquals(text9,"Order a large transfer?"+"\n"+"If you're transferring larger amounts where the timing of your transaction can become more important, we'll also give you your own dedicated dealer. With each dealer servicing fewer clients than a bank, they provide a level of personal service that the established banks simply can't match." +"\n"+ 
-                                     "In addition, you'll be able to take advantage of our cost effective transaction options including:" +"\n"+ "Forward contacts – lock in an exchange rate for up to 12 months" +"\n"+"Market orders – set a target rate for automatic orders");
-	
+		  String text9 = home.LargeTransferSection_UI.getText();
+	      Assert.assertEquals(text9,"Online Money Transfers"+"\n"+"We're proud of the fact that we’re one of the quickest and easiest ways to send money around the world."+"\n"+"Benefits include:"+"\n"+"Fee free transfers."+"\n"+"Highly competitive exchange rates."+"\n"+"Send money, and track payments 24/7 via your mobile, tablet or PC."+"\n"+"Norton security trusted by 97 of the World's 100 largest banks so you’re fully protected online."+"\n"+"Used to transfer over $150 billion by customers in 127 countries.");
 	  
 	  
 	  
@@ -151,47 +157,42 @@ public class ID0001_XeMtPersonal {
 		  
 		  
 		   // Check the content for Nz
-		   driver.get(baseUrl+"/xemoneytransfer/"+"/nz/");
+		   driver.get(baseUrl+"/xemoneytransfer/"+"/nz/"+"#currencies");
 		   checkContent2();
-		   List<WebElement> p = driver.findElements(By.cssSelector(".tabPane p")) ;
-		   String text13 =  p.get(5).getText();
+		   String text13 = home.TabPane_UI.get(5).getText();
 		   Assert.assertEquals(text13,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		   checkContent3();
 		   
 		   
 		  
 		  // Check the content for AU
-		   driver.get(baseUrl+"/xemoneytransfer/"+"/au/");
+		   driver.get(baseUrl+"/xemoneytransfer/"+"/au/"+"#currencies");
 		   checkContent2();
-		   List<WebElement> p4 = driver.findElements(By.cssSelector(".tabPane p")) ;
-		   String text14 =  p4.get(5).getText();
+		   String text14 =  home.TabPane_UI.get(5).getText();
 		   Assert.assertEquals(text14,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		   checkContent3();
 		  
 		  
 		  // check the content for ca
-		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/");
+		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#currencies");
 		   checkContent2();
-		   List<WebElement> p1 = driver.findElements(By.cssSelector(".tabPane p")) ;
-		   String text15 =  p1.get(5).getText();
+		   String text15 =  home.TabPane_UI.get(5).getText();
 		   Assert.assertEquals(text15,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		   checkContent4();
 		   
 		  
 		  //check the content for  US
-		  driver.get(baseUrl+"/xemoneytransfer/"+"/us/");
+		  driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#currencies");
 		  checkContent2();
-		  List<WebElement> p2 = driver.findElements(By.cssSelector(".tabPane p")) ;
-		  String text16 =  p2.get(6).getText();
+		  String text16 = home.TabPane_UI.get(6).getText();
 		  Assert.assertEquals(text16,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		  checkContent4();
 		  
 		  
 		 //check the content for UK
-		  driver.get(baseUrl+"/xemoneytransfer/"+"/uk/");
+		  driver.get(baseUrl+"/xemoneytransfer/"+"/uk/"+"#currencies");
 		  checkContent2();
-		  List<WebElement> p3 = driver.findElements(By.cssSelector(".tabPane p")) ;
-		  String text17 =  p3.get(7).getText();
+		  String text17 =  home.TabPane_UI.get(7).getText();
 		  Assert.assertEquals(text17,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		  checkContent5();
 		  
@@ -210,34 +211,40 @@ public class ID0001_XeMtPersonal {
 	
 	// content for Why Xe
 	private void checkContent(){
-		   
-		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		  String text6 = driver.findElement(By.cssSelector(".whatCustomersSayText")).getText();
-		  Assert.assertEquals(text6,"What our customers say about us:");	
-		  String text7 = driver.findElement(By.cssSelector(".xePromo")).getText();
-		  Assert.assertEquals(text7, "\"The amount of hassle I used to have transferring money to Spain has now gone completely thanks to XE Trade. Thank you.\"" +"\n"+"Terry - United Kingdom");	  
-	}
+	
+		  String txt06 = home.sixItems.get(1).findElement(By.cssSelector(".desc")).getText();
+		  Assert.assertEquals(txt06, "No fees");
+		  String txt07 = home.sixItems.get(2).findElement(By.cssSelector(".desc")).getText();
+		  Assert.assertEquals(txt07, "Fast & easy");
+		  String txt08 = home.sixItems.get(3).findElement(By.cssSelector(".desc")).getText();
+		  Assert.assertEquals(txt08, "With care");
+		  String txt09 = home.sixItems.get(4).findElement(By.cssSelector(".desc")).getText();
+		  Assert.assertEquals(txt09, "Secure");
+		  String txt10 = home.sixItems.get(5).findElement(By.cssSelector(".desc")).getText();
+		  Assert.assertEquals(txt10, "Free tools");
+		  String txt11 = home.JoinNowmakeTransfer_UI.getText();
+		  Assert.assertEquals(txt11, "Join now and see how much you can save:"+"\n"+"Free Personal Account"+"\n"+"Free Business Account");
+		  String txt12 = home.FeefreePromo_UI.getText();
+		  Assert.assertEquals(txt12, "Free transfers from XE Money Transfer!"+"\n"+"All transfers with XE Money Transfer are fee free. Sign up to access fee free transfers and great exchange rates. Existing customers log in to make a transfer now.");
+		 
+		 	}
 	
 	
 	
 	//Content - How it works
 	private void checkContent1(){
-		 
-		  List<WebElement> a = driver.findElements(By.cssSelector(".tabs li")) ;
-		  a.get(1).findElement(By.cssSelector("a")).click();
-		  List<WebElement> h1 = driver.findElements(By.cssSelector(".tabPane h1")) ;
-		  String text8 =  h1.get(1).getText();
+		 general.waitElementIsPresented(home.heading_UI.get(1));
+		  String text8 =  home.heading_UI.get(1).getText();
 		  Assert.assertEquals(text8,"Fast and really easy to use");
 		  String txt1 = home.fourItems.get(0).findElement(By.cssSelector(".desc")).getText();
-	      Assert.assertEquals(txt1,"Get a free quote and choose the currencies and amount to send.");
+	      Assert.assertEquals(txt1,"To get a free quote choose the currencies and amount you want to send.");
 	      String txt2 = home.fourItems.get(1).findElement(By.cssSelector(".desc")).getText();
-	      Assert.assertEquals(txt2,"Tell us where and who you'd like us to send your money to.");
+	      Assert.assertEquals(txt2,"Tell us where you'd like us to send your money to.");
 		  String txt3 = home.fourItems.get(2).findElement(By.cssSelector(".desc")).getText();
-	      Assert.assertEquals(txt3,"Confirm your order and pay by bank transfer.");
+	      Assert.assertEquals(txt3,"Confirm your order and send your money to us.");
 	      String txt4 = home.fourItems.get(3).findElement(By.cssSelector(".desc")).getText();
-	      Assert.assertEquals(txt4,"Sit back and we'll do the rest! You're alerted when funds are delivered.");
-	      List<WebElement> p = driver.findElements(By.cssSelector(".joinNow p")) ;
-		  String text11 =  p.get(1).getText();
+	      Assert.assertEquals(txt4,"Sit back and relax as we do the rest and send your money around the world.");
+		  String text11 = home.joinNow_UI.get(1).getText();
 		  Assert.assertEquals(text11,"See how fast and easy your money transfer can be:");
 		  
 	
@@ -245,8 +252,8 @@ public class ID0001_XeMtPersonal {
 	
 	private void checkContent2(){
 		
-		  List<WebElement> a1 = driver.findElements(By.cssSelector(".tabs li")) ;
-		  a1.get(2).findElement(By.cssSelector("a")).click();
+		   
+		  home.tabsList_UI.get(2).findElement(By.cssSelector("a")).click();
 		  List<WebElement> h1 = driver.findElements(By.cssSelector(".tabPane h1")) ;
 		  String text12 =  h1.get(2).getText();
 		  Assert.assertEquals(text12,"Your money to the currency you need");
@@ -254,252 +261,249 @@ public class ID0001_XeMtPersonal {
 		  
 	}
 	private void checkContent3(){
-		   List<WebElement> c1 = driver.findElements(By.cssSelector(".region li")) ;
-		   String text8 =  c1.get(14).getText();
+		   String text8 =  home.region_UI.get(14).getText();
 		   Assert.assertEquals(text8,"AED Emirati Dirham");
-		   String text9 =  c1.get(21).getText();
+		   String text9 =  home.region_UI.get(21).getText();
 		   Assert.assertEquals(text9,"AUD Australian Dollar");
-		   String text10 =  c1.get(0).getText();
+		   String text10 = home.region_UI.get(0).getText();
 		   Assert.assertEquals(text10,"CAD Canadian Dollar");
-		   String text11 =  c1.get(4).getText();
+		   String text11 = home.region_UI.get(4).getText();
 		   Assert.assertEquals(text11,"CHF Swiss Franc");
-		   String text12 =  c1.get(5).getText();
+		   String text12 = home.region_UI.get(5).getText();
 		   Assert.assertEquals(text12,"CZK Czech Koruna");
-	       String text13 =  c1.get(6).getText();
+	       String text13 = home.region_UI.get(6).getText();
 		   Assert.assertEquals(text13,"DKK Danish Krone");
-		   String text14 =  c1.get(7).getText();
+		   String text14 =   home.region_UI.get(7).getText();
 		   Assert.assertEquals(text14,"EUR Euro");
-		   String text15 =  c1.get(22).getText();
+		   String text15 =   home.region_UI.get(22).getText();
 		   Assert.assertEquals(text15,"FJD Fijian Dollar");
-		   String text16 =  c1.get(8).getText();
+		   String text16 =   home.region_UI.get(8).getText();
 		   Assert.assertEquals(text16,"GBP British Pound");
-		   String text17 =  c1.get(15).getText();
+		   String text17 =   home.region_UI.get(15).getText();
 		   Assert.assertEquals(text17,"HKD Hong Kong Dollar");
-		   String text18 =  c1.get(9).getText();
+		   String text18 =   home.region_UI.get(9).getText();
 		   Assert.assertEquals(text18,"HUF Hungarian Forint");
-		   String text19 =  c1.get(16).getText();
+		   String text19 =   home.region_UI.get(16).getText();
 		   Assert.assertEquals(text19,"INR Indian Rupee");
-		   String text20 =  c1.get(17).getText();
+		   String text20 =   home.region_UI.get(17).getText();
 		   Assert.assertEquals(text20,"JPY Japanese Yen");
-		   String text21 =  c1.get(1).getText();
+		   String text21 =   home.region_UI.get(1).getText();
 		   Assert.assertEquals(text21,"MXN Mexican Peso");
-		   String text22 =  c1.get(10).getText();
+		   String text22 =   home.region_UI.get(10).getText();
 		   Assert.assertEquals(text22,"NOK Norwegian Krone");
-		   String text23 =  c1.get(23).getText();
+		   String text23 =   home.region_UI.get(23).getText();
 		   Assert.assertEquals(text23,"NZD New Zealand Dollar");
-		   String text24 =  c1.get(24).getText();
+		   String text24 =   home.region_UI.get(24).getText();
 		   Assert.assertEquals(text24,"PGK Papua New Guinean Kina");
-		   String text25 =  c1.get(18).getText();
+		   String text25 =   home.region_UI.get(18).getText();
 		   Assert.assertEquals(text25,"PHP Philippine Peso");
-		   String text26 =  c1.get(11).getText();
+		   String text26 =   home.region_UI.get(11).getText();
 		   Assert.assertEquals(text26,"PLN Polish Zloty");
-	       String text27 =  c1.get(25).getText();
+	       String text27 =   home.region_UI.get(25).getText();
 		   Assert.assertEquals(text27,"SBD Solomon Islander Dollar");
-		   String text28 =  c1.get(12).getText();
+		   String text28 =   home.region_UI.get(12).getText();
 		   Assert.assertEquals(text28,"SEK Swedish Krona");
-		   String text29 =  c1.get(19).getText();
+		   String text29 =   home.region_UI.get(19).getText();
 		   Assert.assertEquals(text29,"SGD Singapore Dollar");
-		   String text30 =  c1.get(20).getText();
+		   String text30 =   home.region_UI.get(20).getText();
 		   Assert.assertEquals(text30,"THB Thai Baht");
-	       String text31 =  c1.get(26).getText();
+	       String text31 =   home.region_UI.get(26).getText();
 		   Assert.assertEquals(text31,"TOP Tongan Pa'anga");
-		   String text32 =  c1.get(2).getText();
+		   String text32 =   home.region_UI.get(2).getText();
 		   Assert.assertEquals(text32,"USD US Dollar");
-		   String text33 =  c1.get(3).getText();
+		   String text33 =   home.region_UI.get(3).getText();
 		   Assert.assertEquals(text33,"VUV Ni-Vanuatu Vatu");
-		   String text34 =  c1.get(27).getText();
+		   String text34 =   home.region_UI.get(27).getText();
 		   Assert.assertEquals(text34,"WST Samoan Tala");
-		   String text35 =  c1.get(28).getText();
+		   String text35 =   home.region_UI.get(28).getText();
 		   Assert.assertEquals(text35,"XPF CFP Franc");
-		   String text36 =  c1.get(13).getText();
+		   String text36 =   home.region_UI.get(13).getText();
 		   Assert.assertEquals(text36,"ZAR South African Rand");
 		   }
 	
 	private void checkContent4(){
-		   List<WebElement> c1 = driver.findElements(By.cssSelector(".region li")) ;
-		   String text1 =  c1.get(0).getText();
+		   String text1 =   home.region_UI.get(0).getText();
 		   Assert.assertEquals(text1,"BBD Barbadian or Bajan Dollar*");
-		   String text2 =  c1.get(1).getText();
+		   String text2 =   home.region_UI.get(1).getText();
 		   Assert.assertEquals(text2,"BSD Bahamian Dollar*");
-		   String text3 =  c1.get(2).getText();
+		   String text3 =   home.region_UI.get(2).getText();
 		   Assert.assertEquals(text3,"CAD Canadian Dollar");
-		   String text11 =  c1.get(3).getText();
+		   String text11 =   home.region_UI.get(3).getText();
 		   Assert.assertEquals(text11,"JMD Jamaican Dollar*");
-		   String text12 =  c1.get(4).getText();
+		   String text12 =   home.region_UI.get(4).getText();
 		   Assert.assertEquals(text12,"MXN Mexican Peso");
-		   String text13 =  c1.get(5).getText();
+		   String text13 =   home.region_UI.get(5).getText();
 		   Assert.assertEquals(text13,"USD US Dollar");
-		   String text14 =  c1.get(6).getText();
+		   String text14 =   home.region_UI.get(6).getText();
 		   Assert.assertEquals(text14,"XCD East Caribbean Dollar*");
-		   String text15 =  c1.get(7).getText();
+		   String text15 =   home.region_UI.get(7).getText();
 		   Assert.assertEquals(text15,"BZD Belizean Dollar*");
-		   String text16 =  c1.get(8).getText();
+		   String text16 =   home.region_UI.get(8).getText();
 		   Assert.assertEquals(text16,"TTD Trinidadian Dollar");
-		   String text17 =  c1.get(9).getText();
+		   String text17 =   home.region_UI.get(9).getText();
 		   Assert.assertEquals(text17,"BGN Bulgarian Lev");
-		   String text18 =  c1.get(10).getText();
+		   String text18 =   home.region_UI.get(10).getText();
 		   Assert.assertEquals(text18,"CHF Swiss Franc");
-		   String text19 =  c1.get(11).getText();
+		   String text19 =   home.region_UI.get(11).getText();
 		   Assert.assertEquals(text19,"CZK Czech Koruna");
-		   String text20 =  c1.get(12).getText();
+		   String text20 =   home.region_UI.get(12).getText();
 		   Assert.assertEquals(text20,"DKK Danish Krone");
-		   String text21 =  c1.get(13).getText();
+		   String text21 =   home.region_UI.get(13).getText();
 		   Assert.assertEquals(text21,"EUR Euro");
-		   String text22 =  c1.get(14).getText();
+		   String text22 =   home.region_UI.get(14).getText();
 		   Assert.assertEquals(text22,"GBP British Pound");
-	       String text23 =  c1.get(15).getText();
+	       String text23 =   home.region_UI.get(15).getText();
 		   Assert.assertEquals(text23,"HRK Croatian Kuna");
-		   String text24 =  c1.get(16).getText();
+		   String text24 =   home.region_UI.get(16).getText();
 		   Assert.assertEquals(text24,"HUF Hungarian Forint");
-		   String text25 =  c1.get(17).getText();
+		   String text25 =   home.region_UI.get(17).getText();
 		   Assert.assertEquals(text25,"ILS Israeli Shekel");
-		   String text26 =  c1.get(18).getText();
+		   String text26 =   home.region_UI.get(18).getText();
 		   Assert.assertEquals(text26,"NOK Norwegian Krone");
-		   String text27 =  c1.get(19).getText();
+		   String text27 =   home.region_UI.get(19).getText();
 		   Assert.assertEquals(text27,"PLN Polish Zloty");
-		   String text28 =  c1.get(20).getText();
+		   String text28 =   home.region_UI.get(20).getText();
 		   Assert.assertEquals(text28,"RON Romanian Leu");
-		   String text29 =  c1.get(21).getText();
+		   String text29 =   home.region_UI.get(21).getText();
 		   Assert.assertEquals(text29,"RSD Serbian Dinar");
-		   String text30 =  c1.get(22).getText();
+		   String text30 =   home.region_UI.get(22).getText();
 		   Assert.assertEquals(text30,"SEK Swedish Krona");
-		   String text31 =  c1.get(23).getText();
+		   String text31 =   home.region_UI.get(23).getText();
 		   Assert.assertEquals(text31,"TRY Turkish Lira");
-           String text32 =  c1.get(24).getText();
+           String text32 =   home.region_UI.get(24).getText();
 		   Assert.assertEquals(text32,"BWP Botswana Pula");
-		   String text33 =  c1.get(25).getText();
+		   String text33 =   home.region_UI.get(25).getText();
 		   Assert.assertEquals(text33,"GHS Ghanaian Cedi*");
-		   String text34 =  c1.get(26).getText();
+		   String text34 =   home.region_UI.get(26).getText();
 		   Assert.assertEquals(text34,"KES Kenyan Shilling");
-	       String text35 =  c1.get(27).getText();
+	       String text35 =   home.region_UI.get(27).getText();
 		   Assert.assertEquals(text35,"LSL Basotho Loti");
-		   String text36 =  c1.get(28).getText();
+		   String text36 =   home.region_UI.get(28).getText();
 		   Assert.assertEquals(text36,"MUR Mauritian Rupee");
-		   String text37 =  c1.get(29).getText();
+		   String text37 =   home.region_UI.get(29).getText();
 		   Assert.assertEquals(text37,"MWK Malawian Kwacha*");
-		   String text38 =  c1.get(30).getText();
+		   String text38 =   home.region_UI.get(30).getText();
 		   Assert.assertEquals(text38,"SZL Swazi Lilangeni");
-		   String text39 =  c1.get(31).getText();
+		   String text39 =   home.region_UI.get(31).getText();
 		   Assert.assertEquals(text39,"TND Tunisian Dinar");
-	       String text40 =  c1.get(32).getText();
+	       String text40 =   home.region_UI.get(32).getText();
 		   Assert.assertEquals(text40,"ZAR South African Rand");
-		   String text41 =  c1.get(33).getText();
+		   String text41 =   home.region_UI.get(33).getText();
 		   Assert.assertEquals(text41,"ZMW Zambian Kwacha*");
-		   String text42 =  c1.get(34).getText();
+		   String text42 =   home.region_UI.get(34).getText();
 		   Assert.assertEquals(text42,"AED Emirati Dirham");
-		   String text43 =  c1.get(35).getText();
+		   String text43 =   home.region_UI.get(35).getText();
 		   Assert.assertEquals(text43,"BHD Bahraini Dinar");
-		   String text44 =  c1.get(36).getText();
+		   String text44 =   home.region_UI.get(36).getText();
 		   Assert.assertEquals(text44,"HKD Hong Kong Dollar");
-		   String text45 =  c1.get(37).getText();
+		   String text45 =   home.region_UI.get(37).getText();
 		   Assert.assertEquals(text45,"JOD Jordanian Dinar");
-		   String text46 =  c1.get(38).getText();
+		   String text46 =   home.region_UI.get(38).getText();
 		   Assert.assertEquals(text46,"JPY Japanese Yen");
-		   String text47 =  c1.get(39).getText();
+		   String text47 =   home.region_UI.get(39).getText();
 		   Assert.assertEquals(text47,"KWD Kuwaiti Dinar");
-		   String text48 =  c1.get(40).getText();
+		   String text48 =   home.region_UI.get(40).getText();
 		   Assert.assertEquals(text48,"LKR Sri Lankan Rupee*");
-		   String text49 =  c1.get(41).getText();
+		   String text49 =   home.region_UI.get(41).getText();
 		   Assert.assertEquals(text49,"OMR Omani Rial");
-		   String text50 =  c1.get(42).getText();
+		   String text50 =   home.region_UI.get(42).getText();
 		   Assert.assertEquals(text50,"PHP Philippine Peso");
-	       String text51 =  c1.get(43).getText();
+	       String text51 =   home.region_UI.get(43).getText();
 		   Assert.assertEquals(text51,"PKR Pakistani Rupee*");
-		   String text52 =  c1.get(44).getText();
+		   String text52 =   home.region_UI.get(44).getText();
 		   Assert.assertEquals(text52,"QAR Qatari Riyal");
-	       String text53 =  c1.get(45).getText();
+	       String text53 =   home.region_UI.get(45).getText();
 		   Assert.assertEquals(text53,"SAR Saudi Arabian Riyal");
-	       String text54 =  c1.get(46).getText();
+	       String text54 =   home.region_UI.get(46).getText();
 		   Assert.assertEquals(text54,"SGD Singapore Dollar");
-		   String text55 =  c1.get(47).getText();
+		   String text55 =   home.region_UI.get(47).getText();
 		   Assert.assertEquals(text55,"THB Thai Baht");
-		   String text56 =  c1.get(48).getText();
+		   String text56 =   home.region_UI.get(48).getText();
 		   Assert.assertEquals(text56,"AUD Australian Dollar");
-		   String text57 =  c1.get(49).getText();
+		   String text57 =   home.region_UI.get(49).getText();
 		   Assert.assertEquals(text57,"FJD Fijian Dollar");
-		   String text58 =  c1.get(50).getText();
+		   String text58 =   home.region_UI.get(50).getText();
 		   Assert.assertEquals(text58,"NZD New Zealand Dollar");
 	}
 
 	private void checkContent5(){
-		   List<WebElement> c1 = driver.findElements(By.cssSelector(".region li")) ;
-		   String text1 =  c1.get(0).getText();
+		   String text1 =   home.region_UI.get(0).getText();
 		   Assert.assertEquals(text1,"CAD Canadian Dollar");
-		   String text2 =  c1.get(1).getText();
+		   String text2 =   home.region_UI.get(1).getText();
 		   Assert.assertEquals(text2,"MXN Mexican Peso");
-		   String text3 =  c1.get(2).getText();
+		   String text3 =   home.region_UI.get(2).getText();
 		   Assert.assertEquals(text3,"USD US Dollar");
-		   String text11 =  c1.get(3).getText();
+		   String text11 =   home.region_UI.get(3).getText();
 		   Assert.assertEquals(text11,"BGN Bulgarian Lev");
-		   String text12 =  c1.get(4).getText();
+		   String text12 =   home.region_UI.get(4).getText();
 		   Assert.assertEquals(text12,"CHF Swiss Franc");
-		   String text13 =  c1.get(5).getText();
+		   String text13 =   home.region_UI.get(5).getText();
 		   Assert.assertEquals(text13,"CZK Czech Koruna");
-		   String text14 =  c1.get(6).getText();
+		   String text14 =   home.region_UI.get(6).getText();
 		   Assert.assertEquals(text14,"DKK Danish Krone");
-		   String text15 =  c1.get(7).getText();
+		   String text15 =   home.region_UI.get(7).getText();
 		   Assert.assertEquals(text15,"EUR Euro");
-		   String text16 =  c1.get(8).getText();
+		   String text16 =   home.region_UI.get(8).getText();
 		   Assert.assertEquals(text16,"GBP British Pound");
-	       String text17 =  c1.get(9).getText();
+	       String text17 =   home.region_UI.get(9).getText();
 		   Assert.assertEquals(text17,"HRK Croatian Kuna");
-	       String text18 =  c1.get(10).getText();
+	       String text18 =   home.region_UI.get(10).getText();
 		   Assert.assertEquals(text18,"HUF Hungarian Forint");
-           String text19 =  c1.get(11).getText();
+           String text19 =   home.region_UI.get(11).getText();
 		   Assert.assertEquals(text19,"ILS Israeli Shekel");
-		   String text20 =  c1.get(12).getText();
+		   String text20 =   home.region_UI.get(12).getText();
 		   Assert.assertEquals(text20,"NOK Norwegian Krone");
-	       String text21 =  c1.get(13).getText();
+	       String text21 =   home.region_UI.get(13).getText();
 		   Assert.assertEquals(text21,"PLN Polish Zloty");
-		   String text22 =  c1.get(14).getText();
+		   String text22 =   home.region_UI.get(14).getText();
 		   Assert.assertEquals(text22,"RON Romanian Leu");
-           String text23 =  c1.get(15).getText();
+           String text23 =   home.region_UI.get(15).getText();
 		   Assert.assertEquals(text23,"RSD Serbian Dinar");
-	       String text24 =  c1.get(16).getText();
+	       String text24 =   home.region_UI.get(16).getText();
 		   Assert.assertEquals(text24,"SEK Swedish Krona");
-           String text25 =  c1.get(17).getText();
+           String text25 =   home.region_UI.get(17).getText();
 		   Assert.assertEquals(text25,"TRY Turkish Lira");
-		   String text26 =  c1.get(18).getText();
+		   String text26 =   home.region_UI.get(18).getText();
 		   Assert.assertEquals(text26,"BWP Botswana Pula");
-	       String text27 =  c1.get(19).getText();
+	       String text27 =   home.region_UI.get(19).getText();
 		   Assert.assertEquals(text27,"KES Kenyan Shilling");
-           String text28 =  c1.get(20).getText();
+           String text28 =   home.region_UI.get(20).getText();
 		   Assert.assertEquals(text28,"LSL Basotho Loti");
-	       String text29 =  c1.get(21).getText();
+	       String text29 =   home.region_UI.get(21).getText();
 		   Assert.assertEquals(text29,"MUR Mauritian Rupee");
-	       String text30 =  c1.get(22).getText();
+	       String text30 =   home.region_UI.get(22).getText();
 		   Assert.assertEquals(text30,"SZL Swazi Lilangeni");
-		   String text31 =  c1.get(23).getText();
+		   String text31 =   home.region_UI.get(23).getText();
 		   Assert.assertEquals(text31,"TND Tunisian Dinar");
-		   String text32 =  c1.get(24).getText();
+		   String text32 =   home.region_UI.get(24).getText();
 		   Assert.assertEquals(text32,"ZAR South African Rand");
-		   String text33 =  c1.get(25).getText();
+		   String text33 =   home.region_UI.get(25).getText();
 		   Assert.assertEquals(text33,"AED Emirati Dirham");
-		   String text34 =  c1.get(26).getText();
+		   String text34 =   home.region_UI.get(26).getText();
 		   Assert.assertEquals(text34,"BHD Bahraini Dinar");
-		   String text35 =  c1.get(27).getText();
+		   String text35 =   home.region_UI.get(27).getText();
 		   Assert.assertEquals(text35,"HKD Hong Kong Dollar");
-	       String text36 =  c1.get(28).getText();
+	       String text36 =   home.region_UI.get(28).getText();
 		   Assert.assertEquals(text36,"JOD Jordanian Dinar");
-	       String text37 =  c1.get(29).getText();
+	       String text37 =   home.region_UI.get(29).getText();
 		   Assert.assertEquals(text37,"JPY Japanese Yen");
-		   String text38 =  c1.get(30).getText();
+		   String text38 =   home.region_UI.get(30).getText();
 		   Assert.assertEquals(text38,"KWD Kuwaiti Dinar");
-		   String text39 =  c1.get(31).getText();
+		   String text39 =   home.region_UI.get(31).getText();
 		   Assert.assertEquals(text39,"OMR Omani Rial");
-		   String text40 =  c1.get(32).getText();
+		   String text40 =   home.region_UI.get(32).getText();
 		   Assert.assertEquals(text40,"PHP Philippine Peso");
-	       String text41 =  c1.get(33).getText();
+	       String text41 =   home.region_UI.get(33).getText();
 		   Assert.assertEquals(text41,"QAR Qatari Riyal");
-		   String text42 =  c1.get(34).getText();
+		   String text42 =   home.region_UI.get(34).getText();
 		   Assert.assertEquals(text42,"SAR Saudi Arabian Riyal");
-	       String text43 =  c1.get(35).getText();
+	       String text43 =   home.region_UI.get(35).getText();
 		   Assert.assertEquals(text43,"SGD Singapore Dollar");
-           String text44 =  c1.get(36).getText();
+           String text44 =   home.region_UI.get(36).getText();
 		   Assert.assertEquals(text44,"THB Thai Baht");
-		   String text45 =  c1.get(37).getText();
+		   String text45 =   home.region_UI.get(37).getText();
 		   Assert.assertEquals(text45,"AUD Australian Dollar");
-		   String text46 =  c1.get(38).getText();
+		   String text46 =   home.region_UI.get(38).getText();
 		   Assert.assertEquals(text46,"NZD New Zealand Dollar");
 		  	}
 }

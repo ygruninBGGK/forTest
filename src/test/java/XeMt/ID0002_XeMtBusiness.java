@@ -28,7 +28,7 @@ public class ID0002_XeMtBusiness {
     @BeforeClass
     public void BaseUrl(@Optional("http://mlo04.xe.com") String url, @Optional("firefox")String browser) throws MalformedURLException, InterruptedException {	
 		driver = new FirefoxDriver();
-		baseUrl = "http://mlo01.xe.com/";
+		baseUrl = "http://gamma.xe.com/";
 		
 		
 	}
