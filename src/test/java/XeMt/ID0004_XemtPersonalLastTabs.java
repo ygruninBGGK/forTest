@@ -54,14 +54,11 @@ public class ID0004_XemtPersonalLastTabs {
 		driver = new FirefoxDriver();
 		home =  PageFactory.initElements(driver, WhyXePage.class);
 		baseUrl = "http://gamma.xe.com/";
-		
-		
 	}
          @Test
          public void a_redirectToXeMt() throws InterruptedException {
     		
         	 //	C7608	XE Money Transfer - Last 3 tabs
-        	 
    		  driver.get(baseUrl);
    		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
    		  driver.get(baseUrl+"/xemoneytransfer/");
