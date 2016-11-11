@@ -61,7 +61,7 @@ dependencies {
 
 test {
     useTestNG()   {
-        suites '/AllRegressionTestng.xml'
+        suites '/testng.xml'
         useDefaultListeners = true 
     }
   

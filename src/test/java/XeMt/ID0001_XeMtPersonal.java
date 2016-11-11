@@ -51,7 +51,7 @@ public class ID0001_XeMtPersonal {
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
     public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxWin")String browser) throws MalformedURLException, InterruptedException {	
-		driver = Browsers.getDriver(browser);
+		driver = Browsers.getDriver("firefoxWin");
 		general = PageFactory.initElements(driver, General.class);
 		home =  PageFactory.initElements(driver, WhyXePage.class);
 		baseUrl = url;
@@ -194,18 +194,17 @@ public class ID0001_XeMtPersonal {
 		  checkContent2();
 		  String text17 =  home.TabPane_UI.get(7).getText();
 		  Assert.assertEquals(text17,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
-		  checkContent5();
-		  
+		  checkContent5();  
 	  }
 
 
-	
-	
-	  
 	@AfterClass
 	 public void close() {
 	 driver.close();
 	}
+	
+	
+	
 	
 	
 	
