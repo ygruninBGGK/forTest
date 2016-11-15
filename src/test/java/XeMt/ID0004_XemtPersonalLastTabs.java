@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import xemt_UI.ID0004_PersonalLatTabs_UI;
+import xemt_UI.PersonalLastTabs_UI;
 import xemt_UI.WhyXePage;
 
 import java.lang.reflect.Array;
@@ -51,7 +51,7 @@ public class ID0004_XemtPersonalLastTabs {
 	
 	private String baseUrl;
 	private WebDriver driver;
-	private ID0004_PersonalLatTabs_UI home; 
+	private PersonalLastTabs_UI home; 
 	private General general;
 	
 	@Parameters({"BaseUrl","browser"})
@@ -59,7 +59,7 @@ public class ID0004_XemtPersonalLastTabs {
     public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal")String browser) throws MalformedURLException, InterruptedException {	
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
-		home =  PageFactory.initElements(driver, ID0004_PersonalLatTabs_UI.class);
+		home =  PageFactory.initElements(driver, PersonalLastTabs_UI.class);
 		baseUrl = "http://gamma.xe.com/";
 		
 		
