@@ -4,10 +4,10 @@
 	<parameter name="selenium.host" value="http://172.16.21.110/" />
   	<parameter name="selenium.port" value="4444" />
  	<parameter name="browser" value="firefox" />
-  <test name="Test">
+  <test name="XEMT tests">
     <classes>
       <class name="XeMt.ID0001_XeMtPersonal"/>
-    <!--   <class name="XeMt.ID0004_XemtPersonalLastTabs"/> -->
+      <class name="XeMt.ID0004_XemtPersonalLastTabs"/> 
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
