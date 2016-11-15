@@ -22,12 +22,11 @@ import xemt_UI.BusinessFirsttabs_UI;
 import xemt_UI.PersonalLastTabs_UI;
 
 
-
+// C5953	check XEMT business page is navigating properly or not
+//	C5954	check the content for Why XE tab under the business function.
+// C5955 check the content for features tab under the business function.
+// C5956	check the content for Features tab under the business function
 public class ID0002_XeMtBusiness {
-	 // C5953	check XEMT business page is navigating properly or not
-	 //	C5954	check the content for Why XE tab under the business function.
-	 // C5955 check the content for features tab under the business function.
-	 // C5956	check the content for Features tab under the business function
 	private String baseUrl;
 	private WebDriver  driver;
 	private General general;
@@ -35,7 +34,7 @@ public class ID0002_XeMtBusiness {
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal")String browser) throws MalformedURLException, InterruptedException {	
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox")String browser) throws MalformedURLException, InterruptedException {	
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
 		firsttabs =  PageFactory.initElements(driver, BusinessFirsttabs_UI.class);
@@ -49,10 +48,10 @@ public class ID0002_XeMtBusiness {
 	  public void a_redirectToXeMt() throws InterruptedException {
 			
 		  driver.get(baseUrl);
-		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		  general.wait10sec();
 		  driver.get(baseUrl+"xemoneytransfer/business/");
 		  Thread.sleep(2000);
-		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		  general.wait10sec();
 		  Thread.sleep(2000);
 		  String text1 = firsttabs.pullLeft_UI.getText();
 		  Assert.assertEquals(text1,"International Payments designed around your business.");
