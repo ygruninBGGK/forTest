@@ -1,11 +1,16 @@
 package XeMt;
 
 import org.testng.annotations.Test;
+
+import utils.Browsers;
+import utils.General;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import xemt_UI.ID0004_PersonalLatTabs_UI;
 import xemt_UI.WhyXePage;
 
 import java.lang.reflect.Array;
@@ -15,6 +20,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -44,15 +50,16 @@ import org.testng.annotations.Test;
 public class ID0004_XemtPersonalLastTabs {
 	
 	private String baseUrl;
-	private FirefoxDriver driver;
-	private WhyXePage home;
-	
+	private WebDriver driver;
+	private ID0004_PersonalLatTabs_UI home; 
+	private General general;
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://mlo04.xe.com") String url, @Optional("firefox")String browser) throws MalformedURLException, InterruptedException {	
-		driver = new FirefoxDriver();
-		home =  PageFactory.initElements(driver, WhyXePage.class);
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal")String browser) throws MalformedURLException, InterruptedException {	
+		driver = Browsers.getDriver(browser);
+		general = PageFactory.initElements(driver, General.class);
+		home =  PageFactory.initElements(driver, ID0004_PersonalLatTabs_UI.class);
 		baseUrl = "http://gamma.xe.com/";
 	}
          @Test
@@ -63,124 +70,100 @@ public class ID0004_XemtPersonalLastTabs {
    		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
    		  driver.get(baseUrl+"/xemoneytransfer/");
 		  //Great rates and no fees
-		  List<WebElement> a = driver.findElements(By.cssSelector(".tabs li")) ;
-		  a.get(3).findElement(By.cssSelector("a")).click();
 		  // Check the content for Nz
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/nz/"+"#greatratesnofees");
 		  Thread.sleep(2000);
-		  List<WebElement> p4 = driver.findElements(By.cssSelector(".tabPane p")) ;
- 		  String text5 =  p4.get(6).getText();
+ 		  String text5 =  home.tabPane_UI.get(6).getText();
  		  Assert.assertEquals(text5,"We believe in offering fair and transparent pricing. When you transfer money with XE our rates are clearly displayed so you'll know exactly what you pay before you complete your transaction. We save you money in 2 ways:");
+ 		  Thread.sleep(2000);
  		  contentCheck();
 		  // Check the content for au
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/au/"+"#greatratesnofees");
 		   Thread.sleep(2000);
-		   List<WebElement> p7 = driver.findElements(By.cssSelector(".tabPane p")) ;
-  		   String text7 =  p7.get(6).getText();
+  		   String text7 =  home.tabPane_UI.get(6).getText();
   		   Assert.assertEquals(text7,"We believe in offering fair and transparent pricing. When you transfer money with XE our rates are clearly displayed so you'll know exactly what you pay before you complete your transaction. We save you money in 2 ways:");
   		   contentCheck();
   		   // Check the content for Ca
-  		   //driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#greatratesnofee");
-		  /// Thread.sleep(2000);
-		  // List<WebElement> p8 = driver.findElements(By.cssSelector(".tabPane p")) ;
-		   //Thread.sleep(2000);
-		   //String text8 =  p8.get(7).getText();
-		  // Assert.assertEquals(text8,"We believe in offering fair and transparent pricing. When you transfer money with XE our rates are clearly displayed so you'll know exactly what you pay before you complete your transaction.");
-		 //  contentCheck();
+  		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#greatratesnofees");
+		   Thread.sleep(3000);
+		   String text8 =  home.tabPane_UI.get(7).getText();
+		   Assert.assertEquals(text8,"We believe in offering fair and transparent pricing. When you transfer money with XE our rates are clearly displayed so you'll know exactly what you pay before you complete your transaction.");
+		   contentCheck();
 		    //Check the content for us
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#greatratesnofees");
 		   Thread.sleep(2000);
-		   List<WebElement> p9 = driver.findElements(By.cssSelector(".tabPane p")) ;
-  		   String text9 =  p9.get(9).getText();
+  		   String text9 =  home.tabPane_UI.get(9).getText();
   		   Assert.assertEquals(text9,"We believe in offering fair and transparent pricing. When you transfer money with XE our rates are clearly displayed so you'll know exactly what you pay before you complete your transaction.");
 		   contentCheck();
 		   //Check the content for uk
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/uk/"+"#greatratesnofees");
 		   Thread.sleep(2000);
-		   List<WebElement> p3 = driver.findElements(By.cssSelector(".tabPane h1")) ;
-  		   String text4 =  p3.get(3).getText();
+  		   String text4 =  home.heading_UI.get(3).getText();
   		   Assert.assertEquals(text4,"Keep more of your money when you transfer with XE");
-  		   List<WebElement> p5 = driver.findElements(By.cssSelector(".tabPane p")) ;
-  		   String txt5 =  p5.get(8).getText();
+  		   String txt5 =  home.tabPane_UI.get(8).getText();
   		   Assert.assertEquals(txt5,"Every month we use an independent company to check all the main high street banks and building societies to make sure our overall price (including bank charges, exchange rates and other fees) is better. We save you money in 2 ways:");
-  		   List<WebElement> p2 = driver.findElements(By.cssSelector(".pull-left")) ;
-		   String text3 =  p2.get(4).getText();
+		   String text3 = home.pullLeft_UI.get(4).getText();
 		   Assert.assertEquals(text3,"Our fees are simple: £0"+"\n"+"All transfers with XE Money Transfer are fee free. Sign up to access fee free transfers and great exchange rates. Existing customers log in to make a transfer now.");
            //Trusted brand
 		   // Check the content for Nz
-		   Thread.sleep(2000);
-		   List<WebElement> a1 = driver.findElements(By.cssSelector(".tabs li")) ;
-		   a1.get(4).findElement(By.cssSelector("a")).click();
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/nz"+"#trustedbrand");
 		   Thread.sleep(2000);
-		   List<WebElement> p1 = driver.findElements(By.cssSelector(".tabPane p")) ;
-  		   String text1 =  p1.get(11).getText();
+  		   String text1 =  home.tabPane_UI.get(11).getText();
   		   Assert.assertEquals(text1,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
 		   TrustandRespect();
 		   // Check the content for au
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/au/"+"#trustedbrand");
 		   Thread.sleep(2000);
-		   List<WebElement> p11 = driver.findElements(By.cssSelector(".tabPane p")) ;
-  		   String txt1 =  p11.get(11).getText();
+  		   String txt1 = home.tabPane_UI.get(11).getText();
   		   Assert.assertEquals(txt1,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
 		   TrustandRespect();
 		   // Check the content for Ca
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#trustedbrand");
 		   Thread.sleep(2000);
-		   List<WebElement> p12 = driver.findElements(By.cssSelector(".tabPane p")) ;
-  		   String txt2 =  p12.get(10).getText();
+  		   String txt2 =  home.tabPane_UI.get(10).getText();
   		   Assert.assertEquals(txt2,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
 		   TrustandRespect();
 		   //Check the content for us
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#trustedbrand");
 		   Thread.sleep(2000);
-		   List<WebElement> p13 = driver.findElements(By.cssSelector(".tabPane p")) ;
-  		   String txt3 =  p13.get(12).getText();
+  		   String txt3 =  home.tabPane_UI.get(12).getText();
   		   Assert.assertEquals(txt3,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
 		   TrustandRespect();
 		   //Check the content for uk
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/uk/"+"#trustedbrand");
 		   Thread.sleep(2000);
-		   List<WebElement> p14 = driver.findElements(By.cssSelector(".tabPane p")) ;
-  		   String txt4 =  p14.get(13).getText();
+  		   String txt4 =  home.tabPane_UI.get(13).getText();
   		   Assert.assertEquals(txt4,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
 		   TrustandRespect();
            // secure and reliable
-		   List<WebElement> a2 = driver.findElements(By.cssSelector(".tabs li")) ;
-		   a2.get(5).findElement(By.cssSelector("a")).click();
 		   // Check the content for Nz
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/nz/"+"#securereliable");
 		   Thread.sleep(2000);
-  		   List<WebElement> p15 = driver.findElements(By.cssSelector(".tabPane p")) ;
-  		   String text6 =  p15.get(13).getText();
+  		   String text6 =  home.tabPane_UI.get(13).getText();
   		   Assert.assertEquals(text6,"Trust us for your next money transfer. Join now:");
 		   SecureandReliable();
 		   // Check the content for au
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/au/"+"#securereliable");
 		   Thread.sleep(2000);
-  		   List<WebElement> p16 = driver.findElements(By.cssSelector(".tabPane p")) ;
-  		   String txt7 =  p16.get(13).getText();
+  		   String txt7 =  home.tabPane_UI.get(13).getText();
   		   Assert.assertEquals(txt7,"Trust us for your next money transfer. Join now:");
 		   SecureandReliable();
 		   // Check the content for Ca
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#securereliable");
 		   Thread.sleep(2000);
-  		   List<WebElement> p17 = driver.findElements(By.cssSelector(".tabPane p")) ;
-  		   String txt8 =  p17.get(12).getText();
+  		   String txt8 =  home.tabPane_UI.get(12).getText();
   		   Assert.assertEquals(txt8,"Trust us for your next money transfer. Join now:");
 		   SecureandReliable();
 		   //Check the content for us
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#securereliable");
 		   Thread.sleep(2000);
-  		   List<WebElement> p18 = driver.findElements(By.cssSelector(".tabPane p")) ;
-  		   String txt9 =  p18.get(14).getText();
+  		   String txt9 =  home.tabPane_UI.get(14).getText();
   		   Assert.assertEquals(txt9,"Trust us for your next money transfer. Join now:");
 		   SecureandReliable();
 		   //Check the content for uk
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/uk/"+"#securereliable");
 		   Thread.sleep(2000);
-  		   List<WebElement> p19 = driver.findElements(By.cssSelector(".tabPane p")) ;
-  		   String txt10 =  p19.get(15).getText();
+  		   String txt10 =  home.tabPane_UI.get(15).getText();
   		   Assert.assertEquals(txt10,"Trust us for your next money transfer. Join now:");
 		   SecureandReliable();
          
@@ -193,36 +176,33 @@ public class ID0004_XemtPersonalLastTabs {
          
          
          private void contentCheck() throws InterruptedException{
-        	 
-           List<WebElement> p3 = driver.findElements(By.cssSelector(".tabPane h1")) ;
-  		   String text4 =  p3.get(3).getText();
+           Thread.sleep(2000); 
+  		   String text4 =  home.heading_UI.get(3).getText();
   		   Assert.assertEquals(text4,"Keep more of your money when you transfer with XE");
-  		   List<WebElement> p2 = driver.findElements(By.cssSelector(".pull-left")) ;
-		   String text3 =  p2.get(4).getText();
+  		   Thread.sleep(2000);
+		   String text3 =  home.pullLeft_UI.get(4).getText();
 		   Assert.assertEquals(text3,"Our fees are simple: $0"+"\n"+"All transfers with XE Money Transfer are fee free. Sign up to access fee free transfers and great exchange rates. Existing customers log in to make a transfer now.");
 		   Thread.sleep(2000);
-		   List<WebElement> p5 = driver.findElements(By.cssSelector(".joinNow")) ;
-  		   String text6 =  p5.get(3).getText();
-  		   Assert.assertEquals(text6,"See how much you could save. Join now:"+"\n"+"Free Personal Account"+"\n"+"Free Business Account");
+  		   String text6 =  home.joinNow_UI.get(2).getText();
+  		   Assert.assertEquals(text6,"See how much you could save. Join now:");
          }
          
-         private void TrustandRespect(){
-        	 
-        	 List<WebElement> p2 = driver.findElements(By.cssSelector(".featureIcons.inline.threeItems.clearfix.liArrows")) ;
-    		 String text2 =  p2.get(0).getText();
+         private void TrustandRespect() throws InterruptedException{
+        	 Thread.sleep(2000);
+    		 String text2 =  home.featureIcons_uI.get(0).getText();
     		 Assert.assertEquals(text2,"We serve 33,000 customers annually ..."+"\n"+"... who send money across 127 countries ..."+"\n"+"... and have transferred $10+ Billion to date");
-    		 List<WebElement> p3 = driver.findElements(By.cssSelector(".joinNow")) ;
-    		 String text5 =  p3.get(4).getText();
-    		 Assert.assertEquals(text5,"Trust us for your next money transfer. Join now:"+"\n"+"Free Personal Account"+"\n"+"Free Business Account");
+    		 Thread.sleep(2000);
+    		 String text5 =  home.joinNow_UI.get(3).getText();
+    		 Assert.assertEquals(text5,"Trust us for your next money transfer. Join now:");
          }
          
          private void SecureandReliable() throws InterruptedException{
+        	 
         	 Thread.sleep(2000);
-        	 List<WebElement> p1 = driver.findElements(By.cssSelector(".tabPane h1")) ;
-    		 String text1 =  p1.get(5).getText();
+    		 String text1 = home.heading_UI.get(5).getText();
     		 Assert.assertEquals(text1,"Your security is our priority.");
-    		 List<WebElement> p2 = driver.findElements(By.cssSelector(".featureIcons.security.clearfix")) ;
-    		 String text2 =  p2.get(0).getText();
+    		 Thread.sleep(2000);
+    		 String text2 =  home.featureiconsSecurity_UI.getText();
     		 Assert.assertEquals(text2,"Secure"+"\n"+"We take the greatest care in ensuring the security of XE Money Transfer. That's why we use Norton security – 97 of the world's 100 largest banks and over 93% of Fortune 500 companies use Norton. In addition, Norton secures more than one million Web servers worldwide."+"\n"+"Reliable"+"\n"+"With XE Money Transfer, you get payment tracking every step of the way. We'll keep you up to date with your transaction via SMS and email. If you choose, we can inform your recipients when your funds are on their way."+"\n"+"Regulated"+"\n"+"We take our legal responsibilities very seriously. Where required, our provider has regulatory approval in every country that we operate in including FinCen in the USA, the Financial Conduct Authority in the UK, ASIC in Australia and the FMA in New Zealand."+"\n"+"Peace of Mind"+"\n"+"In 2015, XE became part of Euronet Worldwide, Inc. (NASDAQ: EEFT), recognized leaders in providing global financial services. Last year, our group transacted over $11 billion for 112,000 clients in 117 countries.");          
     		 
          }
