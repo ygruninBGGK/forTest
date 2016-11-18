@@ -1,11 +1,16 @@
 package XeMt;
 
 import org.testng.annotations.Test;
+
+import utils.Browsers;
+import utils.General;
+
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 
+import xemt_UI.BusinessLasttabs_UI;
 import xemt_UI.WhyXePage;
 
 import java.lang.reflect.Array;
@@ -15,6 +20,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -38,59 +44,163 @@ import org.testng.annotations.Test;
 
 // C5240 Verify Xe Money transfer web page is navigating properly or not 
 //C5254	Verify Xe Money transfer webpage navigating properly
-
+//C7608	XE Money Transfer - Last 3 tabs
 
 
 public class ID0005_XemtBusinessLastTabs {
 	
 	private String baseUrl;
-	private FirefoxDriver driver;
-	private WhyXePage home;
+	private WebDriver driver;
+	private BusinessLasttabs_UI lasttabs;
+	private General general;
 	
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://mlo04.xe.com") String url, @Optional("firefox")String browser) throws MalformedURLException, InterruptedException {	
-		driver = new FirefoxDriver();
-		home =  PageFactory.initElements(driver, WhyXePage.class);
-		baseUrl = "http://gamma.xe.com/";
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal")String browser) throws MalformedURLException, InterruptedException {	
+		driver = Browsers.getDriver(browser);
+		general = PageFactory.initElements(driver, General.class);
+		lasttabs =  PageFactory.initElements(driver, BusinessLasttabs_UI.class);
+		baseUrl = url;
 		
 		
 	}
          @Test
-         public void a_redirectToXeMt() {
-    		
-        	 //	C7608	XE Money Transfer - Last 3 tabs
-        	 
-   		  driver.get(baseUrl);
-   		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-   		  driver.get(baseUrl+"/xemoneytransfer/");
-   		  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-   		  driver.findElement(By.cssSelector(".active")).click();
-   		  driver.get(baseUrl+"xemoneytransfer/business/");
+         public void a_redirectToXeMt() throws InterruptedException {
+    	 
+           driver.get(baseUrl+"xemoneytransfer/business/");
+           driver.get(baseUrl+"xemoneytransfer/business/"+"#currencies");
+           
+   		  //content for currencies
+           Thread.sleep(2000);
+   		   String text1 =   lasttabs.region_UI.get(0).getText();
+		   Assert.assertEquals(text1,"BBD Barbadian or Bajan Dollar*");
+		   String text2 =   lasttabs.region_UI.get(1).getText();
+		   Assert.assertEquals(text2,"BSD Bahamian Dollar*");
+		   String text3 =   lasttabs.region_UI.get(2).getText();
+		   Assert.assertEquals(text3,"CAD Canadian Dollar");
+		   String text11 =   lasttabs.region_UI.get(3).getText();
+		   Assert.assertEquals(text11,"JMD Jamaican Dollar*");
+		   String text12 =   lasttabs.region_UI.get(4).getText();
+		   Assert.assertEquals(text12,"MXN Mexican Peso");
+		   String text13 =   lasttabs.region_UI.get(5).getText();
+		   Assert.assertEquals(text13,"USD US Dollar");
+		   String text14 =   lasttabs.region_UI.get(6).getText();
+		   Assert.assertEquals(text14,"XCD East Caribbean Dollar*");
+		   String text15 =   lasttabs.region_UI.get(7).getText();
+		   Assert.assertEquals(text15,"BZD Belizean Dollar*");
+		   String text16 =   lasttabs.region_UI.get(8).getText();
+		   Assert.assertEquals(text16,"TTD Trinidadian Dollar");
+		   String text17 =   lasttabs.region_UI.get(9).getText();
+		   Assert.assertEquals(text17,"VUV Ni-Vanuatu Vatu");
+		   String text18 =   lasttabs.region_UI.get(10).getText();
+		   Assert.assertEquals(text18,"BGN Bulgarian Lev");
+		   String text19 =   lasttabs.region_UI.get(11).getText();
+		   Assert.assertEquals(text19,"CHF Swiss Franc");
+		   String text20 =   lasttabs.region_UI.get(12).getText();
+		   Assert.assertEquals(text20,"CZK Czech Koruna");
+		   String text21 =   lasttabs.region_UI.get(13).getText();
+		   Assert.assertEquals(text21,"DKK Danish Krone");
+		   String text22 =   lasttabs.region_UI.get(14).getText();
+		   Assert.assertEquals(text22,"EUR Euro");
+		   String text23 =   lasttabs.region_UI.get(15).getText();
+		   Assert.assertEquals(text23,"GBP British Pound");
+		   String text24 =   lasttabs.region_UI.get(16).getText();
+		   Assert.assertEquals(text24,"HRK Croatian Kuna");
+		   String text25 =   lasttabs.region_UI.get(17).getText();
+		   Assert.assertEquals(text25,"HUF Hungarian Forint");
+		   String text26 =   lasttabs.region_UI.get(18).getText();
+		   Assert.assertEquals(text26,"ILS Israeli Shekel");
+		   String text27 =   lasttabs.region_UI.get(19).getText();
+		   Assert.assertEquals(text27,"NOK Norwegian Krone");
+		   String text28 =   lasttabs.region_UI.get(20).getText();
+		   Assert.assertEquals(text28,"PLN Polish Zloty");
+		   String text29 =   lasttabs.region_UI.get(21).getText();
+		   Assert.assertEquals(text29,"RON Romanian Leu");
+		   String text30 =   lasttabs.region_UI.get(22).getText();
+		   Assert.assertEquals(text30,"RSD Serbian Dinar");
+		   String text31 =   lasttabs.region_UI.get(23).getText();
+		   Assert.assertEquals(text31,"SEK Swedish Krona");
+		   String text32 =   lasttabs.region_UI.get(24).getText();
+		   Assert.assertEquals(text32,"TRY Turkish Lira");
+		   String text33 =   lasttabs.region_UI.get(25).getText();
+		   Assert.assertEquals(text33,"BWP Botswana Pula");
+		   String text34 =   lasttabs.region_UI.get(26).getText();
+		   Assert.assertEquals(text34,"GHS Ghanaian Cedi*");
+		   String text35 =   lasttabs.region_UI.get(27).getText();
+		   Assert.assertEquals(text35,"KES Kenyan Shilling");
+		   String text36 =   lasttabs.region_UI.get(28).getText();
+		   Assert.assertEquals(text36,"LSL Basotho Loti");
+		   String text37 =   lasttabs.region_UI.get(29).getText();
+		   Assert.assertEquals(text37,"MUR Mauritian Rupee");
+		   String text38 =   lasttabs.region_UI.get(30).getText();
+		   Assert.assertEquals(text38,"MWK Malawian Kwacha*");
+		   String text39 =   lasttabs.region_UI.get(31).getText();
+		   Assert.assertEquals(text39,"SZL Swazi Lilangeni");
+		   String text40 =   lasttabs.region_UI.get(32).getText();
+		   Assert.assertEquals(text40,"TND Tunisian Dinar");
+		   String text41 =   lasttabs.region_UI.get(33).getText();
+		   Assert.assertEquals(text41,"ZAR South African Rand");
+		   String text42 =   lasttabs.region_UI.get(34).getText();
+		   Assert.assertEquals(text42,"ZMW Zambian Kwacha*");
+		   String text43 =   lasttabs.region_UI.get(35).getText();
+		   Assert.assertEquals(text43,"AED Emirati Dirham");
+		   String text44 =   lasttabs.region_UI.get(36).getText();
+		   Assert.assertEquals(text44,"BHD Bahraini Dinar");
+		   String text45 =   lasttabs.region_UI.get(37).getText();
+		   Assert.assertEquals(text45,"HKD Hong Kong Dollar");
+		   String text46 =   lasttabs.region_UI.get(38).getText();
+		   Assert.assertEquals(text46,"INR Indian Rupee");
+		   String text47 =   lasttabs.region_UI.get(39).getText();
+		   Assert.assertEquals(text47,"JOD Jordanian Dinar");
+		   String text48 =   lasttabs.region_UI.get(40).getText();
+		   Assert.assertEquals(text48,"JPY Japanese Yen");
+		   String text49 =   lasttabs.region_UI.get(41).getText();
+		   Assert.assertEquals(text49,"KWD Kuwaiti Dinar");
+		   String text50 =   lasttabs.region_UI.get(42).getText();
+		   Assert.assertEquals(text50,"LKR Sri Lankan Rupee*");
+		   String text51 =   lasttabs.region_UI.get(43).getText();
+		   Assert.assertEquals(text51,"OMR Omani Rial");
+		   String text52 =   lasttabs.region_UI.get(44).getText();
+		   Assert.assertEquals(text52,"PHP Philippine Peso");
+	       String text53 =   lasttabs.region_UI.get(45).getText();
+		   Assert.assertEquals(text53,"PKR Pakistani Rupee*");
+		   String text54 =   lasttabs.region_UI.get(46).getText();
+		   Assert.assertEquals(text54,"QAR Qatari Riyal");
+	       String text55 =   lasttabs.region_UI.get(47).getText();
+		   Assert.assertEquals(text55,"SAR Saudi Arabian Riyal");
+	       String text56 =   lasttabs.region_UI.get(48).getText();
+		   Assert.assertEquals(text56,"SGD Singapore Dollar");
+		   String text57 =   lasttabs.region_UI.get(49).getText();
+		   Assert.assertEquals(text57,"THB Thai Baht");
+		   String text58 =   lasttabs.region_UI.get(50).getText();
+		   Assert.assertEquals(text58,"AUD Australian Dollar");
+		   String text59 =   lasttabs.region_UI.get(51).getText();
+		   Assert.assertEquals(text59,"FJD Fijian Dollar");
+		   String text60 =   lasttabs.region_UI.get(52).getText();
+		   Assert.assertEquals(text60,"NZD New Zealand Dollar");
 		  //content Trusted brand
-   		  List<WebElement> p3 = driver.findElements(By.cssSelector(".tabPane p")) ;
-		  String text4 =  p3.get(8).getText();
-		  AssertJUnit.assertEquals(text4,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
-		  List<WebElement> p4 = driver.findElements(By.cssSelector(".tabPane p")) ;
-		  String text5 =  p4.get(8).getText();
-		  AssertJUnit.assertEquals(text5,"Trust us for your next money transfer. Join now:");
+		   driver.get(baseUrl+"xemoneytransfer/business/"+"#trustedbrand");
+   		  Thread.sleep(2000); 
+		  String text4 =  lasttabs.tabPane_UI.get(8).getText();
+		  Assert.assertEquals(text4,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
+		  String text5 =  lasttabs.tabPane_UI.get(9).getText();
+		  Assert.assertEquals(text5,"Trust us for your next money transfer. Join now:");
 		  //Content Secure and reliable
-		  List<WebElement> p1 = driver.findElements(By.cssSelector(".tabPane h1")) ;
- 		  String text1 =  p1.get(5).getText();
- 		  AssertJUnit.assertEquals(text1,"Your security is our priority.");
- 		  List<WebElement> p2 = driver.findElements(By.cssSelector(".featureIcons.security.clearfix")) ;
- 		  String text2 =  p2.get(0).getText();
- 		  AssertJUnit.assertEquals(text2,"Secure We take the greatest care in ensuring the security of XE Money Transfer. That's why we use Norton security – 97 of the world's 100 largest banks and over 93% of Fortune 500 companies use Norton. In addition, Norton secures more than one million Web servers worldwide.");
- 		  String text3 =  p2.get(1).getText();
- 		  AssertJUnit.assertEquals(text3,"Reliable With XE Money Transfer, you get payment tracking every step of the way. We'll keep you up to date with your transaction via SMS and email. If you choose, we can inform your recipients when your funds are on their way.");
- 		  String text6 =  p2.get(1).getText();
- 		  AssertJUnit.assertEquals(text6,"Regulated We take our legal responsibilities very seriously. Where required, our provider has regulatory approval in every country that we operate in including FinCen in the USA, the Financial Conduct Authority in the UK, ASIC in Australia and the FMA in New Zealand.");
- 		  String text7 =  p2.get(1).getText();
- 		  AssertJUnit.assertEquals(text7,"Peace of Mind In 2015, XE became part of Euronet Worldwide, Inc. (NASDAQ: EEFT), recognized leaders in providing global financial services. Last year, our group transacted over $11 billion for 112,000 clients in 117 countries.");          
- 		  List<WebElement> p5 = driver.findElements(By.cssSelector(".tabPane p")) ;
- 		  String text8 =  p5.get(14).getText();
- 		  AssertJUnit.assertEquals(text8,"Trust us for your next money transfer. Join now:");
+		  driver.get(baseUrl+"xemoneytransfer/business/"+"#securereliable");
+		  Thread.sleep(2000); 
+ 		  String txt1 =  lasttabs.heading_UI.get(5).getText();
+ 		  Assert.assertEquals(txt1,"Your security is our priority.");
+ 		  Thread.sleep(2000);  
+ 		  String txt2 =  lasttabs.featureSecurityclearfix_UI.get(0).getText();
+ 		  Assert.assertEquals(txt2,"Secure"+"\n"+"We take the greatest care in ensuring the security of XE Money Transfer. That's why we use Norton security – 97 of the world's 100 largest banks and over 93% of Fortune 500 companies use Norton. In addition, Norton secures more than one million Web servers worldwide."+"\n"+"Reliable"+"\n"+"With XE Money Transfer, you get payment tracking every step of the way. We'll keep you up to date with your transaction via SMS and email. If you choose, we can inform your recipients when your funds are on their way."+"\n"+"Regulated"+"\n"+"We take our legal responsibilities very seriously. Where required, our provider has regulatory approval in every country that we operate in including FinCen in the USA, the Financial Conduct Authority in the UK, ASIC in Australia and the FMA in New Zealand."+"\n"+"Peace of Mind"+"\n"+"In 2015, XE became part of Euronet Worldwide, Inc. (NASDAQ: EEFT), recognized leaders in providing global financial services. Last year, our group transacted over $11 billion for 112,000 clients in 117 countries.");          
+ 		  Thread.sleep(2000);  
+ 		  String text8 =  lasttabs.tabPane_UI.get(10).getText();
+ 		  Assert.assertEquals(text8,"Trust us for your next money transfer. Join now:");
 		   
          }
+      @AfterClass
+   	  public void close() {
+   	  driver.close();
+   	  }	
 }
