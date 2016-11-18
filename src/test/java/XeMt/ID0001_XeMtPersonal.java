@@ -37,6 +37,11 @@ import org.testng.annotations.Test;
 
 // C5240 Verify Xe Money transfer web page is navigating properly or not 
 //C5254	Verify Xe Money transfer webpage navigating properly
+//C5234	Click on Personal Link and check the webpage navigating properly or not
+//C5250	Click on Personal Link and check the webpage navigating properly or not
+//C5222 check  the content under " Why Xe" tab in personal function for 5 regions which are US,CA,UK,AU,NZ. The content under Why Xe is  different for 5 regioons
+//C5223	check the content under " How it works" tab in personal function for 5 regions which are US,CA,UK,AU,NZ
+// C5224	check the content under " Currencies" tab in personal function for 5 regions which are US,CA,UK,AU,NZ
 
 
 
@@ -65,15 +70,8 @@ public class ID0001_XeMtPersonal {
 		  general.wait10sec();
 		  driver.get(baseUrl+"/xemoneytransfer/");
 		  general.wait10sec();
-		  
-		  //C5234	Click on Personal Link and check the webpage navigating properly or not
-		  //C5250	Click on Personal Link and check the webpage navigating properly or not
-		  
 		  home.personalbtn.click();
 		  driver.get(baseUrl+"/xemoneytransfer/");
-		  
-		  
-		  //C5222 check  the content under " Why Xe" tab in personal function for 5 regions which are US,CA,UK,AU,NZ. The content under Why Xe is  different for 5 regioons
 		  // Check the content for Nz
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/nz/");
 		  String text = home.text.getText();
@@ -81,7 +79,6 @@ public class ID0001_XeMtPersonal {
 	      String txt05 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
 		  Assert.assertEquals(txt05, "Great rates");
 		  checkContent();
-		  
 		  // Check the content for AU
 		  driver.get(baseUrl+"/xemoneytransfer"+"/au/");
 		  String text4 = home.text.getText();
@@ -89,7 +86,6 @@ public class ID0001_XeMtPersonal {
 		  String txt07 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
 		  Assert.assertEquals(txt07, "Great rates");
 		  checkContent();
-		  
 		  // check the content for ca
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/");
 		   String text3 = home.text.getText();
@@ -97,8 +93,6 @@ public class ID0001_XeMtPersonal {
 		   String txt06 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
 		   Assert.assertEquals(txt06, "Great rates");
 		   checkContent();
-		    
-		  
 		  //check the content for  US
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/us/");
 		  String text2 = home.text.getText();
@@ -106,8 +100,6 @@ public class ID0001_XeMtPersonal {
 		  String txt08 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
 		  Assert.assertEquals(txt08, "Bank beating");
 		  checkContent();
-		 
-		  
 		 //check the content for UK
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/uk/");
 		  String text5 = home.text.getText();
@@ -115,80 +107,53 @@ public class ID0001_XeMtPersonal {
 		  String txt09 = home.sixItems.get(0).findElement(By.cssSelector(".desc")).getText();
 		  Assert.assertEquals(txt09, "Bank beating");
 		  checkContent();
-		  
-		  
-		  
-		  //C5223	check the content under " How it works" tab in personal function for 5 regions which are US,CA,UK,AU,NZ
-		  // Check the content for Nz
+		 // Check the content for Nz
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/nz/"+"#howitworks");
 		  
 		  checkContent1();
-		  
-		  // Check the content for AU
+	     // Check the content for AU
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/au/"+"#howitworks");
 		 
 		  checkContent1();
-		  
-		  
-		  // check the content for ca
+	     // check the content for ca
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#howitworks");
 		  
 		   checkContent1();
-		  
-		   
-		  
-		  //check the content for  US
+		 //check the content for  US
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#howitworks");
 		 
 		  checkContent1();
-		  
-		  
 		 //check the content for UK
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/uk/"+"#howitworks");
 		 
 		  checkContent1();
 		  String text9 = home.LargeTransferSection_UI.getText();
-	      Assert.assertEquals(text9,"Online Money Transfers"+"\n"+"We're proud of the fact that we’re one of the quickest and easiest ways to send money around the world."+"\n"+"Benefits include:"+"\n"+"Fee free transfers."+"\n"+"Highly competitive exchange rates."+"\n"+"Send money, and track payments 24/7 via your mobile, tablet or PC."+"\n"+"Norton security trusted by 97 of the World's 100 largest banks so you’re fully protected online."+"\n"+"Used to transfer over $150 billion by customers in 127 countries.");
-	  
-	  
-	  
-	       // C5224	check the content under " Currencies" tab in personal function for 5 regions which are US,CA,UK,AU,NZ
-	      //Check currencies buttton
-		  
-		  
-		   // Check the content for Nz
+	      Assert.assertEquals(text9,"Larger Transfers"+"\n"+"If you're transferring larger amounts where the timing of your transaction can become more important, we'll also give you your own dedicated dealer. With each dealer servicing fewer clients than a bank, they provide a level of personal service that the established banks simply can't match."+"\n"+"In addition, you'll be able to take advantage of our cost effective transaction options including:"+"\n"+"Forward contacts – lock in an exchange rate for up to 12 months"+"\n"+"Market orders – set a target rate for automatic orders");
+	     //Check currencies buttton
+		 // Check the content for Nz
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/nz/"+"#currencies");
 		   checkContent2();
 		   String text13 = home.TabPane_UI.get(5).getText();
 		   Assert.assertEquals(text13,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		   checkContent3();
-		   
-		   
-		  
-		  // Check the content for AU
+		 // Check the content for AU
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/au/"+"#currencies");
 		   checkContent2();
 		   String text14 =  home.TabPane_UI.get(5).getText();
 		   Assert.assertEquals(text14,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		   checkContent3();
-		  
-		  
-		  // check the content for ca
+	     // check the content for ca
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#currencies");
 		   checkContent2();
 		   String text15 =  home.TabPane_UI.get(5).getText();
 		   Assert.assertEquals(text15,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		   checkContent4();
-		   
-		  
-		  //check the content for  US
+	    //check the content for  US
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#currencies");
 		  checkContent2();
 		  String text16 = home.TabPane_UI.get(6).getText();
 		  Assert.assertEquals(text16,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		  checkContent4();
-		  
-		  
 		 //check the content for UK
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/uk/"+"#currencies");
 		  checkContent2();
@@ -197,22 +162,20 @@ public class ID0001_XeMtPersonal {
 		  checkContent5();  
 	  }
 
+	  @AfterClass
 
-	@AfterClass
 	 public void close() {
 	 driver.close();
 	}
 	
-	
-	
-	
-	
-	
-	// content for Why Xe
+
+
+    // content for Why Xe
+
 	private void checkContent(){
 	
 		  String txt06 = home.sixItems.get(1).findElement(By.cssSelector(".desc")).getText();
-		  Assert.assertEquals(txt06, "No fees");
+		  Assert.assertEquals(txt06, "Low fees");
 		  String txt07 = home.sixItems.get(2).findElement(By.cssSelector(".desc")).getText();
 		  Assert.assertEquals(txt07, "Fast & easy");
 		  String txt08 = home.sixItems.get(3).findElement(By.cssSelector(".desc")).getText();
@@ -227,13 +190,14 @@ public class ID0001_XeMtPersonal {
 		  Assert.assertEquals(txt12, "Free transfers from XE Money Transfer!"+"\n"+"All transfers with XE Money Transfer are fee free. Sign up to access fee free transfers and great exchange rates. Existing customers log in to make a transfer now.");
 		 
 		 	}
-	
+
 	
 	
 	//Content - How it works
 	private void checkContent1() throws InterruptedException{
 		 Thread.sleep(1000);
 		 general.waitElementIsPresented(home.heading_UI.get(1));
+
 		  String text8 =  home.heading_UI.get(1).getText();
 		  Assert.assertEquals(text8,"Fast and really easy to use");
 		  String txt1 = home.fourItems.get(0).findElement(By.cssSelector(".desc")).getText();

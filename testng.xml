@@ -9,6 +9,7 @@
       <class name="XeMt.ID0001_XeMtPersonal"/>
       <class name="XeMt.ID0002_XeMtBusiness"/>
       <class name="XeMt.ID0004_XemtPersonalLastTabs"/> 
+      <class name="XeMt.ID0005_XemtBusinessLastTabs"/> 
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
