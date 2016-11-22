@@ -1,4 +1,4 @@
-package XeMt;
+package xeMt;
 
 import org.testng.annotations.Test;
 

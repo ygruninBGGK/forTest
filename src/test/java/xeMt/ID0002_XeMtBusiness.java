@@ -1,4 +1,4 @@
-package XeMt;
+package xeMt;
 
 import java.net.MalformedURLException;
 import java.util.List;

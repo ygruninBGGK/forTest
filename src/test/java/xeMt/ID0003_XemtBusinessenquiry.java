@@ -1,8 +1,9 @@
-package XeMt;
+package xeMt;
 
 import java.net.MalformedURLException;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -26,7 +27,7 @@ public class ID0003_XemtBusinessenquiry {
 	// C6164 XE Marketing Pages - Develop business inquiry form
 	@Parameters({ "BaseUrl", "browser" })
 	@BeforeClass
-	public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal") String browser) throws MalformedURLException, InterruptedException {
+	public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox") String browser) throws MalformedURLException, InterruptedException {
 		driver = Browsers.getDriver(browser);
 		enquiry = PageFactory.initElements(driver, Businessenquiry_UI.class);
 		baseUrl = url;
@@ -36,6 +37,7 @@ public class ID0003_XemtBusinessenquiry {
 	public void a_redirectToXeMt() throws InterruptedException {
 
 		driver.get(baseUrl + "xemoneytransfer/business/");
+		driver.manage().window().setSize(new Dimension(1920, 1080));
 		List<WebElement> p = driver.findElements(By.cssSelector(".button.large.green.roundedCorners"));
 		p.get(0).click();
 		driver.findElement(By.cssSelector(".button.medium.over1m.green.inline.roundedCorners")).click();

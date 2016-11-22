@@ -6,10 +6,11 @@
  	<parameter name="browser" value="firefox" />
   <test name="XEMT tests">
     <classes>
-      <class name="XeMt.ID0001_XeMtPersonal"/>
-      <class name="XeMt.ID0002_XeMtBusiness"/>
-      <class name="XeMt.ID0004_XemtPersonalLastTabs"/> 
-      <class name="XeMt.ID0005_XemtBusinessLastTabs"/> 
+      <class name="xeMt.ID0001_XeMtPersonal"/>
+      <class name="xeMt.ID0002_XeMtBusiness"/>
+      <class name="xeMt.ID0003_XemtBusinessenquiry"/>
+      <class name="xeMt.ID0004_XemtPersonalLastTabs"/> 
+      <class name="xeMt.ID0005_XemtBusinessLastTabs"/> 
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
