@@ -69,97 +69,103 @@ public class ID0004_XemtPersonalLastTabs {
 		  // Check the content for Nz
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/nz/"+"#greatratesnofees");
 		  Thread.sleep(2000);
- 		  String text5 =  home.tabPane_UI.get(6).getText();
+ 		  String text5 =  home.tabPane_UI.get(7).getText();
  		  Assert.assertEquals(text5,"We believe in offering fair and transparent pricing. When you transfer money with XE our rates are clearly displayed so you'll know exactly what you pay before you complete your transaction. We save you money in 2 ways:");
  		  Thread.sleep(2000);
  		  contentCheck();
 		  // Check the content for au
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/au/"+"#greatratesnofees");
 		   Thread.sleep(2000);
+
 		   String text7 =  home.tabPane_UI.get(6).getText();
 		   Assert.assertEquals(text7,"We believe in offering fair and transparent pricing. When you transfer money with XE our rates are clearly displayed so you'll know exactly what you pay before you complete your transaction. We save you money in 2 ways:");
 		   contentCheck();
 		   // Check the content for Ca
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#greatratesnofees");
+
+
 		   Thread.sleep(3000);
-		   String text8 =  home.tabPane_UI.get(7).getText();
+		   String text8 =  home.tabPane_UI.get(8).getText();
 		   Assert.assertEquals(text8,"We believe in offering fair and transparent pricing. When you transfer money with XE our rates are clearly displayed so you'll know exactly what you pay before you complete your transaction.");
 		   contentCheck();
 		    //Check the content for us
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#greatratesnofees");
 		   Thread.sleep(2000);
+
 		   String text9 =  home.tabPane_UI.get(9).getText();
 		   Assert.assertEquals(text9,"We believe in offering fair and transparent pricing. When you transfer money with XE our rates are clearly displayed so you'll know exactly what you pay before you complete your transaction.");
+
 		   contentCheck();
 		   //Check the content for uk
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/uk/"+"#greatratesnofees");
 		   Thread.sleep(2000);
-		   String text4 =  home.heading_UI.get(3).getText();
-		   Assert.assertEquals(text4,"Keep more of your money when you transfer with XE");
-		   String txt5 =  home.tabPane_UI.get(8).getText();
-		   Assert.assertEquals(txt5,"Every month we use an independent company to check all the main high street banks and building societies to make sure our overall price (including bank charges, exchange rates and other fees) is better. We save you money in 2 ways:");
+  		   String text4 =  home.heading_UI.get(3).getText();
+  		   Assert.assertEquals(text4,"Keep more of your money when you transfer with XE");
+  		   String txt5 =  home.tabPane_UI.get(9).getText();
+  		   Assert.assertEquals(txt5,"Every month we use an independent company to check all the main high street banks and building societies to make sure our overall price (including bank charges, exchange rates and other fees) is better. We save you money in 2 ways:");
+
 		   String text3 = home.pullLeft_UI.get(4).getText();
 		   Assert.assertEquals(text3,"Our fees are simple: £0"+"\n"+"All transfers with XE Money Transfer are fee free. Sign up to access fee free transfers and great exchange rates. Existing customers log in to make a transfer now.");
            //Trusted brand
 		   // Check the content for Nz
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/nz"+"#trustedbrand");
 		   Thread.sleep(2000);
-  		   String text1 =  home.tabPane_UI.get(11).getText();
+  		   String text1 =  home.tabPane_UI.get(12).getText();
   		   Assert.assertEquals(text1,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
 		   TrustandRespect();
 		   // Check the content for au
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/au/"+"#trustedbrand");
 		   Thread.sleep(2000);
-  		   String txt1 = home.tabPane_UI.get(11).getText();
+  		   String txt1 = home.tabPane_UI.get(12).getText();
   		   Assert.assertEquals(txt1,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
 		   TrustandRespect();
 		   // Check the content for Ca
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#trustedbrand");
 		   Thread.sleep(2000);
-  		   String txt2 =  home.tabPane_UI.get(10).getText();
+  		   String txt2 =  home.tabPane_UI.get(11).getText();
   		   Assert.assertEquals(txt2,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
 		   TrustandRespect();
 		   //Check the content for us
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#trustedbrand");
 		   Thread.sleep(2000);
-  		   String txt3 =  home.tabPane_UI.get(12).getText();
+  		   String txt3 =  home.tabPane_UI.get(13).getText();
   		   Assert.assertEquals(txt3,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
 		   TrustandRespect();
 		   //Check the content for uk
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/uk/"+"#trustedbrand");
 		   Thread.sleep(2000);
-  		   String txt4 =  home.tabPane_UI.get(13).getText();
+  		   String txt4 =  home.tabPane_UI.get(14).getText();
   		   Assert.assertEquals(txt4,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
 		   TrustandRespect();
            // secure and reliable
 		   // Check the content for Nz
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/nz/"+"#securereliable");
 		   Thread.sleep(2000);
-  		   String text6 =  home.tabPane_UI.get(13).getText();
+  		   String text6 =  home.tabPane_UI.get(14).getText();
   		   Assert.assertEquals(text6,"Trust us for your next money transfer. Join now:");
 		   SecureandReliable();
 		   // Check the content for au
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/au/"+"#securereliable");
 		   Thread.sleep(2000);
-  		   String txt7 =  home.tabPane_UI.get(13).getText();
+  		   String txt7 =  home.tabPane_UI.get(14).getText();
   		   Assert.assertEquals(txt7,"Trust us for your next money transfer. Join now:");
 		   SecureandReliable();
 		   // Check the content for Ca
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#securereliable");
 		   Thread.sleep(2000);
-  		   String txt8 =  home.tabPane_UI.get(12).getText();
+  		   String txt8 =  home.tabPane_UI.get(13).getText();
   		   Assert.assertEquals(txt8,"Trust us for your next money transfer. Join now:");
 		   SecureandReliable();
 		   //Check the content for us
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#securereliable");
 		   Thread.sleep(2000);
-  		   String txt9 =  home.tabPane_UI.get(14).getText();
+  		   String txt9 =  home.tabPane_UI.get(15).getText();
   		   Assert.assertEquals(txt9,"Trust us for your next money transfer. Join now:");
 		   SecureandReliable();
 		   //Check the content for uk
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/uk/"+"#securereliable");
 		   Thread.sleep(2000);
-  		   String txt10 =  home.tabPane_UI.get(15).getText();
+  		   String txt10 =  home.tabPane_UI.get(16).getText();
   		   Assert.assertEquals(txt10,"Trust us for your next money transfer. Join now:");
 		   SecureandReliable();   
          }

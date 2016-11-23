@@ -128,36 +128,36 @@ public class ID0001_XeMtPersonal {
 		 
 		  checkContent1();
 		  String text9 = home.LargeTransferSection_UI.getText();
-	      Assert.assertEquals(text9,"Larger Transfers"+"\n"+"If you're transferring larger amounts where the timing of your transaction can become more important, we'll also give you your own dedicated dealer. With each dealer servicing fewer clients than a bank, they provide a level of personal service that the established banks simply can't match."+"\n"+"In addition, you'll be able to take advantage of our cost effective transaction options including:"+"\n"+"Forward contacts – lock in an exchange rate for up to 12 months"+"\n"+"Market orders – set a target rate for automatic orders");
+	      Assert.assertEquals(text9,"Online Money Transfers"+"\n"+"We're proud of the fact that we’re one of the quickest and easiest ways to send money around the world."+"\n"+"Benefits include:"+"\n"+"Fee free transfers."+"\n"+"Highly competitive exchange rates."+"\n"+"Send money, and track payments 24/7 via your mobile, tablet or PC."+"\n"+"Norton security trusted by 97 of the World's 100 largest banks so you’re fully protected online."+"\n"+"Used to transfer over $150 billion by customers in 127 countries.");
 	     //Check currencies buttton
 		 // Check the content for Nz
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/nz/"+"#currencies");
 		   checkContent2();
-		   String text13 = home.TabPane_UI.get(5).getText();
+		   String text13 = home.TabPane_UI.get(6).getText();
 		   Assert.assertEquals(text13,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		   checkContent3();
 		 // Check the content for AU
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/au/"+"#currencies");
 		   checkContent2();
-		   String text14 =  home.TabPane_UI.get(5).getText();
+		   String text14 =  home.TabPane_UI.get(6).getText();
 		   Assert.assertEquals(text14,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		   checkContent3();
 	     // check the content for ca
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#currencies");
 		   checkContent2();
-		   String text15 =  home.TabPane_UI.get(5).getText();
+		   String text15 =  home.TabPane_UI.get(6).getText();
 		   Assert.assertEquals(text15,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		   checkContent4();
 	    //check the content for  US
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#currencies");
 		  checkContent2();
-		  String text16 = home.TabPane_UI.get(6).getText();
+		  String text16 = home.TabPane_UI.get(7).getText();
 		  Assert.assertEquals(text16,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		  checkContent4();
 		 //check the content for UK
 		  driver.get(baseUrl+"/xemoneytransfer/"+"/uk/"+"#currencies");
 		  checkContent2();
-		  String text17 =  home.TabPane_UI.get(7).getText();
+		  String text17 =  home.TabPane_UI.get(8).getText();
 		  Assert.assertEquals(text17,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		  checkContent5();  
 	  }
@@ -175,7 +175,7 @@ public class ID0001_XeMtPersonal {
 	private void checkContent(){
 	
 		  String txt06 = home.sixItems.get(1).findElement(By.cssSelector(".desc")).getText();
-		  Assert.assertEquals(txt06, "Low fees");
+		  Assert.assertEquals(txt06, "No fees");
 		  String txt07 = home.sixItems.get(2).findElement(By.cssSelector(".desc")).getText();
 		  Assert.assertEquals(txt07, "Fast & easy");
 		  String txt08 = home.sixItems.get(3).findElement(By.cssSelector(".desc")).getText();
@@ -187,8 +187,7 @@ public class ID0001_XeMtPersonal {
 		  String txt11 = home.JoinNowmakeTransfer_UI.getText();
 		  Assert.assertEquals(txt11, "Join now and see how much you can save:"+"\n"+"Free Personal Account"+"\n"+"Free Business Account");
 		  String txt12 = home.FeefreePromo_UI.getText();
-		  Assert.assertEquals(txt12, "Free transfers from XE Money Transfer!"+"\n"+"All transfers with XE Money Transfer are fee free. Sign up to access fee free transfers and great exchange rates. Existing customers log in to make a transfer now.");
-		 
+		  Assert.assertEquals(txt12, "FREE"+"\n"+"Enjoy FREE transfers with XE!"+"\n"+"Save time and money."+"\n"+"Simply sign up today for fee free transfers AND great exchange rates."+"\n"+"Existing customers log in now to make a transfer and benefit.");
 		 	}
 
 	
