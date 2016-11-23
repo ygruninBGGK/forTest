@@ -64,7 +64,7 @@ public class ID0002_XeMtBusiness {
 		  String text4=  firsttabs.featureIconsSixItems_UI.get(0).getText();
 		  Assert.assertEquals(text4,"Great rates");
 		  String text5=  firsttabs.featureIconsSixItems_UI.get(1).getText();
-		  Assert.assertEquals(text5,"Low fees");
+		  Assert.assertEquals(text5,"No fees");
 		  String text6=  firsttabs.featureIconsSixItems_UI.get(2).getText();
 		  Assert.assertEquals(text6,"Fast & easy");
 		  String text7=  firsttabs.featureIconsSixItems_UI.get(3).getText();
