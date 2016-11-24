@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 	import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 	import org.openqa.selenium.support.PageFactory;
@@ -16,18 +17,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 	import org.testng.annotations.Parameters;
 	import org.testng.annotations.Test;
 
+import utils.Browsers;
+
 
 
 	public class ID0003_FooterHeader{
 
 		private String baseUrl;
-		private FirefoxDriver driver;
+		private WebDriver driver;
 	   	
 		@Parameters({"BaseUrl","browser"})
 	    @BeforeClass
-	    public void BaseUrl(@Optional("http://mlo04.xe.com") String url, @Optional("firefox")String browser) throws MalformedURLException, InterruptedException {	
-			driver = new FirefoxDriver();
-			baseUrl = "http://std03.xe.com/";
+	    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox")String browser) throws MalformedURLException, InterruptedException {	
+			driver = Browsers.getDriver(browser);
+			baseUrl = url;
 		}
 			
 	  @Test

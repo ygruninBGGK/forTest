@@ -13,4 +13,9 @@
       <class name="xeMt.ID0005_XemtBusinessLastTabs"/> 
     </classes>
   </test> <!-- Test -->
+  <test name="Xe General">
+    <classes>
+      <class name="xe.com.ID0003_FooterHeader"/>
+    </classes>
+  </test> <!-- Test -->
 </suite> <!-- Suite -->
