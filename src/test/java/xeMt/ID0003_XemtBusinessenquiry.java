@@ -36,6 +36,7 @@ public class ID0003_XemtBusinessenquiry {
 	@Test
 	public void a_redirectToXeMt() throws InterruptedException {
 
+		
 		driver.get(baseUrl + "xemoneytransfer/business/");
 		driver.manage().window().setSize(new Dimension(1920, 1080));
 		List<WebElement> p = driver.findElements(By.cssSelector(".button.large.green.roundedCorners"));

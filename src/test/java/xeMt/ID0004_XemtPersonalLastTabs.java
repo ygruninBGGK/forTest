@@ -77,7 +77,7 @@ public class ID0004_XemtPersonalLastTabs {
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/au/"+"#greatratesnofees");
 		   Thread.sleep(2000);
 
-		   String text7 =  home.tabPane_UI.get(6).getText();
+		   String text7 =  home.tabPane_UI.get(7).getText();
 		   Assert.assertEquals(text7,"We believe in offering fair and transparent pricing. When you transfer money with XE our rates are clearly displayed so you'll know exactly what you pay before you complete your transaction. We save you money in 2 ways:");
 		   contentCheck();
 		   // Check the content for Ca
@@ -92,7 +92,7 @@ public class ID0004_XemtPersonalLastTabs {
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#greatratesnofees");
 		   Thread.sleep(2000);
 
-		   String text9 =  home.tabPane_UI.get(9).getText();
+		   String text9 =  home.tabPane_UI.get(10).getText();
 		   Assert.assertEquals(text9,"We believe in offering fair and transparent pricing. When you transfer money with XE our rates are clearly displayed so you'll know exactly what you pay before you complete your transaction.");
 
 		   contentCheck();
