@@ -92,7 +92,7 @@ public class ID0004_XemtPersonalLastTabs {
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#greatratesnofees");
 		   Thread.sleep(2000);
 
-		   String text9 =  home.tabPane_UI.get(10).getText();
+		   String text9 =  home.tabPane_UI.get(11).getText();
 		   Assert.assertEquals(text9,"We believe in offering fair and transparent pricing. When you transfer money with XE our rates are clearly displayed so you'll know exactly what you pay before you complete your transaction.");
 
 		   contentCheck();
@@ -128,7 +128,7 @@ public class ID0004_XemtPersonalLastTabs {
 		   //Check the content for us
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#trustedbrand");
 		   Thread.sleep(2000);
-  		   String txt3 =  home.tabPane_UI.get(13).getText();
+  		   String txt3 =  home.tabPane_UI.get(14).getText();
   		   Assert.assertEquals(txt3,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
 		   TrustandRespect();
 		   //Check the content for uk
@@ -159,7 +159,7 @@ public class ID0004_XemtPersonalLastTabs {
 		   //Check the content for us
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/us/"+"#securereliable");
 		   Thread.sleep(2000);
-  		   String txt9 =  home.tabPane_UI.get(15).getText();
+  		   String txt9 =  home.tabPane_UI.get(16).getText();
   		   Assert.assertEquals(txt9,"Trust us for your next money transfer. Join now:");
 		   SecureandReliable();
 		   //Check the content for uk

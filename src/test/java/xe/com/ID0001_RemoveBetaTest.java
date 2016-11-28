@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -15,21 +16,26 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import utils.Browsers;
+import xecom_UI.removeBetatest_UI;
+import xemt_UI.Businessenquiry_UI;
+
 
 
 public class ID0001_RemoveBetaTest {
 
 	private String baseUrl;
-	private FirefoxDriver driver;
-
+	private WebDriver driver;
+    private removeBetatest_UI home;
 	
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://mlo04.xe.com") String url, @Optional("firefox")String browser) throws MalformedURLException, InterruptedException {	
-		driver = new FirefoxDriver();
-		baseUrl = "http://mlo01.xe.com/";
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal") String browser) throws MalformedURLException, InterruptedException {
+		driver = Browsers.getDriver(browser);
+		baseUrl = url;
 	}
+
 		
   @Test
   public void a_redirecttoXecom(){
@@ -41,39 +47,35 @@ public class ID0001_RemoveBetaTest {
 	  Assert.assertFalse(driver.getPageSource().contains("beta"));
 	 }
   @Test
-  public void a_redirecttoXecomBetaNotFound(){
+  public void a_redirecttoXecomBetaNotFound() throws InterruptedException{
 	//	C5255	verify- http://www.xe.com/beta/ is removed or not
 	  driver.get(baseUrl);
 	  driver.get(baseUrl+"beta");
-
-	  String txt01 = driver.findElement(By.cssSelector(".module.clearfix.errors h1")).getText();
+	  Thread.sleep(2000);
+      String txt01 = home.moduleClearfix_UI.getText();
 	  Assert.assertEquals(txt01, "HTTP Status Code 404: Not Found");
-	  String txt02 =  driver.findElement(By.cssSelector(".subTitle2")).getText();
+	  String txt02 =  home.subTitle_UI.getText();
 	  Assert.assertEquals(txt02, "HTTP Status Code 404:"+"\n"+"Not Found");
-	  String txt03 = driver.findElement(By.cssSelector(".pageDescription")).getText();
+	  String txt03 = home.pageDescription_UI.getText();
 	  Assert.assertEquals(txt03, "This page doesn’t exist. Try double checking the address to ensure that it is spelled correctly. Otherwise, check out our homepage or other services listed below:");
   }
   
   @Test
-  public void a_redirecttoXecomMigrationFaq(){
+  public void a_redirecttoXecomMigrationFaq() throws InterruptedException{
 	//	C5370	Migration - FAQ - Add new question and answer 
 	  driver.get(baseUrl);
-	  driver.get(baseUrl+"migration/faq.php");
-	 // String txt01 = home.FaqList.get(12).findElement(By.cssSelector(".faqList")).getText();
-	 // Assert.assertEquals(txt01, "What will happen with the XE Currency App after the migration?");
-	  List<WebElement> p = driver.findElements(By.cssSelector(".faqList li")) ;
-	  String text1=  p.get(12).getText();
+	  List<WebElement> p = driver.findElements(By.cssSelector(".moduleActionClass li"));
+	  p.get(1).click();
+	  String text1=  home.faqList_UI.get(12).getText();
 	  Assert.assertEquals(text1,"What will happen with the XE Currency App after the migration?");
 	  driver.get(baseUrl+"migration/answer.php?type=general&q=13");
-	  List<WebElement> c1 = driver.findElements(By.cssSelector(".module.clearfix p")) ;
-	  String text2=  c1.get(0).getText();
+	  String text2= home.moduleParagraph_UI.get(0).getText();
 	  Assert.assertEquals(text2,"The XE Currency App has always been entirely independent from our XE Trade service, and as such is not affected in any way by this migration.");
-	  String text3=  c1.get(1).getText();
+	  String text3= home.moduleParagraph_UI.get(1).getText();
 	  Assert.assertEquals(text3,"Our intention is that in future we will be able to develop deeper links between our services to allow us to continually enhance the customer experience we provide.");
-	  String text4=  c1.get(2).getText();
+	  String text4= home.moduleParagraph_UI.get(2).getText();
 	  Assert.assertEquals(text4,"After October 30th, many elements of the new XE Money Transfer service are mobile responsive and you will easily be able to place transactions on your mobile device.");
-	  
-}
+	  }
 @AfterClass
 public void close() {
 driver.close();
