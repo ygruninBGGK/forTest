@@ -171,12 +171,7 @@ public class ID0004_XemtPersonalLastTabs {
          }
 
          
-         
-         
-         
-         
-         
-         private void contentCheck() throws InterruptedException{
+        private void contentCheck() throws InterruptedException{
            Thread.sleep(2000); 
   		   String text4 =  home.heading_UI.get(3).getText();
   		   Assert.assertEquals(text4,"Keep more of your money when you transfer with XE");
