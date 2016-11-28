@@ -14,6 +14,7 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.Browsers;
+import utils.General;
 import xemt_UI.Businessenquiry_UI;
 
 public class ID0003_XemtBusinessenquiry {
@@ -72,6 +73,7 @@ public class ID0003_XemtBusinessenquiry {
 		List<WebElement> p1 = driver.findElements(By.cssSelector(".button.large.green.roundedCorners"));
 		p1.get(0).click();
 		driver.findElement(By.cssSelector(".button.medium.over1m.green.inline.roundedCorners")).click();
+		driver.wait(10000);
 		driver.findElement(By.name("firstName")).sendKeys("abc");
 		driver.findElement(By.name("lastName")).sendKeys("abc");
 		driver.findElement(By.name("businessName")).sendKeys("abc");
