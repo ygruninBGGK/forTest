@@ -55,19 +55,28 @@ public class Businessenquiry_UI {
 	@FindBy(css = ".error[for='turnover']")
 	public WebElement turnover_UI;
 
-	// error message for turnover
+	// reasons
 	@FindBy(css = ".error[for='reasons']")
 	public WebElement reasons_UI;
 
-	// error message for turnover
+	// header
 	@FindBy(css = ".enquiryFormHeader")
 	public WebElement thankyou_UI;
 
-	// error message for turnover
+	// enquiry form Desc
 	@FindBy(css = ".enquiryFormDesc")
 	public WebElement message_UI;
 
-	// error message for turnover
+	// footer
 	@FindBy(css = ".enquiryFormFooter")
 	public WebElement footer_UI;
+	
+	// sign up overlay
+	@FindBy(css = "#businessSignupOverlay h1")
+	public WebElement signupOverlay_UI;
+	
+	// account type choice
+	@FindBy(css = ".accountTypeChoice")
+	public WebElement accountChoice_UI;
+	
 }
