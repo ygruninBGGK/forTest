@@ -11,22 +11,27 @@ public class removeBetatest_UI {
 		@FindBy(css = ".module.clearfix.errors h1")
 		public WebElement moduleClearfix_UI;
 		
-  // Subtitle
+    // Subtitle
 		@FindBy(css = ".subTitle2")
 		public WebElement subTitle_UI;
 		
- // page description
-	@FindBy(css = ".pageDescription")
-	public WebElement pageDescription_UI;
+    // page description
+	    @FindBy(css = ".pageDescription")
+	    public WebElement pageDescription_UI;
 	
-	// faq list
+    // faq list
 		@FindBy(css = ".faqList li")
 		public List<WebElement> faqList_UI;
 		
-		// .module.clearfix p
-		@FindBy(css = "..module.clearfix p")
+	// faq list
+		@FindBy(css = ".faqList li a")
+	    public List<WebElement> faqLink_UI;
+		
+	// .module.clearfix p
+		@FindBy(css = ".module.clearfix p")
 		public List<WebElement> moduleParagraph_UI;
-		// .module.clearfix p
+		
+	// .module.clearfix p
 		@FindBy(css = ".moduleActionClass li")
 		public List<WebElement> moduleAction_UI;
 }
