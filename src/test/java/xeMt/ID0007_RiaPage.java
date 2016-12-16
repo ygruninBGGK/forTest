@@ -67,6 +67,14 @@ public class ID0007_RiaPage {
 		Assert.assertEquals(txt12, "New customers get a $10 Amazon.com gift card*");
 		String txt13 = page.logoContainer_UI.get(1).getText();
 		Assert.assertEquals(txt13, "Learn More");
+		page.greenButton_UI.click();
+		String txt14 = page.container_UI.getText();
+		Assert.assertEquals(txt14, "We're sorry, registration is not yet available in your country");
+		String txt15 = page.containerParagraph_UI.get(0).getText();
+		Assert.assertEquals(txt15, "Currently, only users in the USA may send money. However, you can still receive money in over 144 countries around the world.");
+		String txt16 = page.containerParagraph_UI.get(1).getText();
+		Assert.assertEquals(txt16, "To be notified about when our money transfer service will be available in your country, please type your email address below.");
+		
 
 	}
 	@AfterClass

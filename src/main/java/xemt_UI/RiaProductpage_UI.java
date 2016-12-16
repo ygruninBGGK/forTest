@@ -33,7 +33,22 @@ public class RiaProductpage_UI {
 	//  foot note
 	    @FindBy(css = ".footnote p")
 	    public WebElement footNote_UI;
+	    
 	//  riaLogoContainer 
 	    @FindBy(css = ".riaLogoContainer p")
 	    public List<WebElement> logoContainer_UI;
+	    
+	// button click
+	    @FindBy(css = ".button.large.green.roundedCorners")
+	    public WebElement greenButton_UI;
+	
+	// Ria content for CA
+	    @FindBy(css = ".container-fluid h1")
+	    public WebElement container_UI;
+	    
+	// verifying Ria content
+	    @FindBy(css = ".container-fluid p")
+	    public List<WebElement> containerParagraph_UI;
+	    
+	    
 }
