@@ -49,6 +49,12 @@ public class ID0003_XemtBusinessenquiry {
 	    Assert.assertEquals(text16, "Annual FX volume");
 		String text17 = enquiry.accountChoice_UI.getText();
 		Assert.assertEquals(text17, "Choose your account type");
+		driver.findElement(By.cssSelector(".button.medium.under1m.green.inline.roundedCorners")).click();
+		String text19 = driver.getCurrentUrl();
+		Assert.assertEquals(text19, "https://1.transfer.xe.com/signup/business/step1.aspx");
+		driver.get(baseUrl + "xemoneytransfer/business/");
+		List<WebElement> p1 = driver.findElements(By.cssSelector(".button.large.green.roundedCorners"));
+		p1.get(0).click();
 		driver.findElement(By.cssSelector(".button.medium.over1m.green.inline.roundedCorners")).click();
 		String text1 = enquiry.moduleHeading_UI.getText();
 		Assert.assertEquals(text1, "Business Account Enquiry");
@@ -78,8 +84,8 @@ public class ID0003_XemtBusinessenquiry {
 		String text12 = enquiry.reasons_UI.getText();
 		Assert.assertEquals(text12, "Please enter your reasons for transactions.");
 		driver.get(baseUrl + "xemoneytransfer/business/");
-		List<WebElement> p1 = driver.findElements(By.cssSelector(".button.large.green.roundedCorners"));
-		p1.get(0).click();
+		List<WebElement> p2 = driver.findElements(By.cssSelector(".button.large.green.roundedCorners"));
+		p2.get(0).click();
 		driver.findElement(By.cssSelector(".button.medium.over1m.green.inline.roundedCorners")).click();
 		Thread.sleep(2000); 
 		driver.findElement(By.name("firstName")).sendKeys("abc");
