@@ -177,12 +177,35 @@ public class ID0004_XemtPersonalLastTabs {
   		   Assert.assertEquals(txt10,"Trust us for your next money transfer. Join now:");
 		   SecureandReliable();   
 		   
-		   // Button Click - " free personal account"
+		   // Button Click NZ- " free personal account"
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/nz/");
-		   List<WebElement> p = driver.findElements(By.cssSelector(".button.large.personal.green.inline.roundedCorners"));
-		   p.get(0).click();
+		   home.freePersonalaccount_UI.get(0).click();
 		   String text19 = driver.getCurrentUrl();
 		   Assert.assertEquals(text19, "https://transfer.xe.com/signup/personal/step1");
+		   
+		   // Button Click AU- " free personal account"
+		   driver.get(baseUrl+"/xemoneytransfer/"+"/au/");
+		   home.freePersonalaccount_UI.get(0).click();
+		   String text20 = driver.getCurrentUrl();
+		   Assert.assertEquals(text20, "https://transfer.xe.com/signup/personal/step1");
+		   
+		   // Button Click CA - " free personal account"
+		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/");
+		   home.freePersonalaccount_UI.get(0).click();
+		   String text21 = driver.getCurrentUrl();
+		   Assert.assertEquals(text21, "https://transfer.xe.com/signup/personal/step1");
+		   
+		   // Button Click US - " free personal account"
+		   driver.get(baseUrl+"/xemoneytransfer/"+"/us/");
+		   home.freePersonalaccount_UI.get(0).click();
+		   String text22 = driver.getCurrentUrl();
+		   Assert.assertEquals(text22, "https://transfer.xe.com/signup/personal/step1");
+		   
+		  // Button Click UK- " free personal account"
+		   driver.get(baseUrl+"/xemoneytransfer/"+"/uk/");
+		   home.freePersonalaccount_UI.get(0).click();
+		   String text23 = driver.getCurrentUrl();
+		   Assert.assertEquals(text23, "https://transfer.xe.com/signup/personal/step1");
 
 		   
          }
