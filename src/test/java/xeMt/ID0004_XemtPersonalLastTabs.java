@@ -11,12 +11,12 @@ import org.testng.Assert;
 import xemt_UI.PersonalLastTabs_UI;
 
 import java.net.MalformedURLException;
-
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import org.testng.annotations.AfterClass;
@@ -49,7 +49,7 @@ public class ID0004_XemtPersonalLastTabs {
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox")String browser) throws MalformedURLException, InterruptedException {	
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal")String browser) throws MalformedURLException, InterruptedException {	
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
 		home =  PageFactory.initElements(driver, PersonalLastTabs_UI.class);
@@ -176,6 +176,15 @@ public class ID0004_XemtPersonalLastTabs {
   		   String txt10 =  home.tabPane_UI.get(16).getText();
   		   Assert.assertEquals(txt10,"Trust us for your next money transfer. Join now:");
 		   SecureandReliable();   
+		   
+		   // Button Click - " free personal account"
+		   driver.get(baseUrl+"/xemoneytransfer/"+"/nz/");
+		   List<WebElement> p = driver.findElements(By.cssSelector(".button.large.personal.green.inline.roundedCorners"));
+		   p.get(0).click();
+		   String text19 = driver.getCurrentUrl();
+		   Assert.assertEquals(text19, "https://transfer.xe.com/signup/personal/step1");
+
+		   
          }
 
          
