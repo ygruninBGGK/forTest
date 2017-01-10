@@ -27,11 +27,13 @@ public class ID0006_LoadToolsandServiceBoxes {
 	private WebDriver driver;
 	private  LoadToolsandServiceBoxes_UI load;
 	private General general;
+	private String usedBrowser;
 	
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal")String browser) throws MalformedURLException {	
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox")String browser) throws MalformedURLException {	
+		usedBrowser = browser;
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
 		load =  PageFactory.initElements(driver,  LoadToolsandServiceBoxes_UI.class);
@@ -40,7 +42,7 @@ public class ID0006_LoadToolsandServiceBoxes {
 	 @Test
      public void loadTools() throws InterruptedException {
 		 
-		 driver.get(baseUrl);
+		 general.openStartingPage(baseUrl, usedBrowser);
 		 String text1 =   load.heading_UI.getText();
 		 Assert.assertEquals(text1,"Currency rates on-the-go ▶");
 		 String text2 =   load.paragraph_UI.get(0).getText();

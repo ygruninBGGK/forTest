@@ -11,12 +11,14 @@
       <class name="xeMt.ID0003_XemtBusinessenquiry"/>
       <class name="xeMt.ID0004_XemtPersonalLastTabs"/> 
       <class name="xeMt.ID0005_XemtBusinessLastTabs"/> 
+      <class name="xeMt.ID0007_RiaPage"/> 
     </classes>
   </test> <!-- Test -->
   <test name="Xe General">
     <classes>
     	<class name="xe.com.ID0001_RemoveBetaTest"/>
         <class name="xe.com.ID0003_FooterHeader"/>
+        <class name="xe.com.ID0006_LoadToolsandServiceBoxes"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

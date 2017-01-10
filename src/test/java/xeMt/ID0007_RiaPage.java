@@ -25,11 +25,13 @@ public class ID0007_RiaPage {
 	private WebDriver driver;
 	private RiaProductpage_UI page;
 	private General general;
+	private String usedBrowser;
 
 	@Parameters({ "BaseUrl", "browser" })
 	@BeforeClass
-	public void BaseUrl(@Optional("http://www.xe.com/") String url, @Optional("firefoxLocal") String browser)
+	public void BaseUrl(@Optional("http://www.xe.com/") String url, @Optional("firefox") String browser)
 			throws MalformedURLException, InterruptedException {
+		usedBrowser = browser;
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
 		page = PageFactory.initElements(driver, RiaProductpage_UI.class);
@@ -37,7 +39,8 @@ public class ID0007_RiaPage {
 }
 	@Test
 	public void riapage() throws InterruptedException{
-		driver.get(baseUrl+"riamoneytransfer");
+		
+		general.openStartingPage(baseUrl+"riamoneytransfer", usedBrowser);
 		String txt01 = page.mainContent_UI.getText();
 		Assert.assertEquals(txt01, "Meet XE's Sister Company: Ria Money Transfer");
 		String txt02 = page.riaParagraph_UI.getText();
@@ -74,8 +77,6 @@ public class ID0007_RiaPage {
 		Assert.assertEquals(txt15, "Currently, only users in the USA may send money. However, you can still receive money in over 144 countries around the world.");
 		String txt16 = page.containerParagraph_UI.get(1).getText();
 		Assert.assertEquals(txt16, "To be notified about when our money transfer service will be available in your country, please type your email address below.");
-		
-
 	}
 	@AfterClass
 

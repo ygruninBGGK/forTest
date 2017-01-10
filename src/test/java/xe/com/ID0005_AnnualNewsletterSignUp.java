@@ -35,8 +35,7 @@ public class ID0005_AnnualNewsletterSignUp {
 		baseUrl = url;
 }
 	 @Test
-     public void a_redirectToXeMt() throws InterruptedException {
-	 
+     public void a_redirectToXeMt() throws InterruptedException { 
        driver.get(baseUrl+"email/xenewsletter/");
        driver.manage().window().setSize(new Dimension(1920, 1080));
        String text1 =   letter.heading_UI.getText();

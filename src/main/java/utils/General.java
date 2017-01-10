@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -48,8 +49,21 @@ public class General {
     public void wait20sec() {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS); // Implicitly wait - wait to appear next step - Wait for appearing in DOM
     }
+    
     public void waitElementIsPresented(final WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+    
+    
+ public void openStartingPage(String url,String usedbrowser) throws InterruptedException{
+    	driver.get(url);
+        driver.manage().window().setSize(new Dimension(1920, 1080));
+        // if run on ie 
+	        if (usedbrowser.equals("IE")){
+	        	wait10sec();
+	        	driver.navigate().to("javascript:document.getElementById('overridelink').click()"); //Java script to click the link
+	        	wait10sec();
+	        }    
     }
 }
