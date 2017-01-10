@@ -27,4 +27,8 @@ public class PersonalLastTabs_UI {
      // featureIcons securit clearfix
      @FindBy(css = ".featureIcons.security.clearfix")
 	   public WebElement featureiconsSecurity_UI;
+     
+     // Free personal account 
+     @FindBy(css = ".button.large.personal.green.inline.roundedCorners")
+	   public List<WebElement> freePersonalaccount_UI;
 }

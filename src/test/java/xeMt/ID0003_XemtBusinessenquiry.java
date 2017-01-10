@@ -14,6 +14,7 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import utils.Browsers;
+import utils.General;
 import xemt_UI.Businessenquiry_UI;
 
 public class ID0003_XemtBusinessenquiry {
@@ -21,13 +22,16 @@ public class ID0003_XemtBusinessenquiry {
 	private String baseUrl;
 	private WebDriver driver;
 	private Businessenquiry_UI enquiry;
+	private General general;
 
 
 	// C6164 XE Marketing Pages - Develop business inquiry form
+	//C9253	Annual Trade Value on Business Sign up
 	@Parameters({ "BaseUrl", "browser" })
 	@BeforeClass
-	public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox") String browser) throws MalformedURLException, InterruptedException {
+	public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal") String browser) throws MalformedURLException, InterruptedException {
 		driver = Browsers.getDriver(browser);
+		general = PageFactory.initElements(driver, General.class);
 		enquiry = PageFactory.initElements(driver, Businessenquiry_UI.class);
 		baseUrl = url;
 	}
@@ -40,6 +44,17 @@ public class ID0003_XemtBusinessenquiry {
 		driver.manage().window().setSize(new Dimension(1920, 1080));
 		List<WebElement> p = driver.findElements(By.cssSelector(".button.large.green.roundedCorners"));
 		p.get(0).click();
+		Thread.sleep(2000);
+		String text16 = enquiry.signupOverlay_UI.getText();
+	    Assert.assertEquals(text16, "Annual FX volume");
+		String text17 = enquiry.accountChoice_UI.getText();
+		Assert.assertEquals(text17, "Choose your account type");
+		driver.findElement(By.cssSelector(".button.medium.under1m.green.inline.roundedCorners")).click();
+		String text19 = driver.getCurrentUrl();
+		Assert.assertEquals(text19, "https://1.transfer.xe.com/signup/business/step1.aspx");
+		driver.get(baseUrl + "xemoneytransfer/business/");
+		List<WebElement> p1 = driver.findElements(By.cssSelector(".button.large.green.roundedCorners"));
+		p1.get(0).click();
 		driver.findElement(By.cssSelector(".button.medium.over1m.green.inline.roundedCorners")).click();
 		String text1 = enquiry.moduleHeading_UI.getText();
 		Assert.assertEquals(text1, "Business Account Enquiry");
@@ -69,9 +84,10 @@ public class ID0003_XemtBusinessenquiry {
 		String text12 = enquiry.reasons_UI.getText();
 		Assert.assertEquals(text12, "Please enter your reasons for transactions.");
 		driver.get(baseUrl + "xemoneytransfer/business/");
-		List<WebElement> p1 = driver.findElements(By.cssSelector(".button.large.green.roundedCorners"));
-		p1.get(0).click();
+		List<WebElement> p2 = driver.findElements(By.cssSelector(".button.large.green.roundedCorners"));
+		p2.get(0).click();
 		driver.findElement(By.cssSelector(".button.medium.over1m.green.inline.roundedCorners")).click();
+		Thread.sleep(2000); 
 		driver.findElement(By.name("firstName")).sendKeys("abc");
 		driver.findElement(By.name("lastName")).sendKeys("abc");
 		driver.findElement(By.name("businessName")).sendKeys("abc");

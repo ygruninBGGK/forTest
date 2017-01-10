@@ -15,7 +15,8 @@
   </test> <!-- Test -->
   <test name="Xe General">
     <classes>
-      <class name="xe.com.ID0003_FooterHeader"/>
+    	<class name="xe.com.ID0001_RemoveBetaTest"/>
+        <class name="xe.com.ID0003_FooterHeader"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

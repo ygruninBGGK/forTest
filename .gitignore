@@ -8,6 +8,7 @@ bin/
 target/
 build/
 test-output/
+test-output/
 /api/deployment_packages
 .gradle
 testng.xml
