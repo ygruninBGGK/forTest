@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import xecom_UI.HomePagexecom_UI;
 
-public class ID0005_RemovePMpost {
+public class ID0002_RemovePMpost {
 
 	private String baseUrl;
 	private FirefoxDriver driver;
