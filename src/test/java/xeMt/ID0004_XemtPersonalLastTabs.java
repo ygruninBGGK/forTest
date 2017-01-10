@@ -49,7 +49,7 @@ public class ID0004_XemtPersonalLastTabs {
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox")String browser) throws MalformedURLException, InterruptedException {	
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal")String browser) throws MalformedURLException, InterruptedException {	
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
 		home =  PageFactory.initElements(driver, PersonalLastTabs_UI.class);

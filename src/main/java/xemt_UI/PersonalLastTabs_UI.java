@@ -7,12 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class PersonalLastTabs_UI {
-
-	public WebDriver driver;
-    
-	public PersonalLastTabs_UI (WebDriver driver) {
-	        this.driver = driver;
-}
+	
 	 @FindBy(css = ".tabPane h1")
 	  public List<WebElement> heading_UI;
 	 // Tabs Pane

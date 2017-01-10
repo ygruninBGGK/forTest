@@ -49,7 +49,7 @@ public class ID0001_XeMtPersonal {
 
 	@Parameters({ "BaseUrl", "browser" })
 	@BeforeClass
-	public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxWin") String browser)
+	public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal") String browser)
 			throws MalformedURLException, InterruptedException {
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
@@ -64,7 +64,8 @@ public class ID0001_XeMtPersonal {
 		general.wait10sec();
 		driver.get(baseUrl + "/xemoneytransfer/");
 		general.wait10sec();
-		home.personalbtn.click();
+		driver.findElement(By.cssSelector(".active")).click();
+		//home.personalbtn.click();
 		driver.get(baseUrl + "/xemoneytransfer/");
 		// Check the content for Nz
 		driver.get(baseUrl + "/xemoneytransfer/" + "/nz/");
@@ -183,7 +184,7 @@ public class ID0001_XeMtPersonal {
 	}
 
 	// Content - How it works
-	private void checkContent1() throws InterruptedException {
+	private void checkContent1() throws InterruptedException  {
 		Thread.sleep(1000);
 		general.waitElementIsPresented(home.heading_UI.get(1));
 
