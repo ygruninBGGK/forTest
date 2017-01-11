@@ -2,10 +2,12 @@ package xeMt;
 
 import org.testng.annotations.Test;
 
-import utils.Browsers;
-import utils.General;
-import xemt_UI.RemoveRequestDemo_UI;
+import utils.Browsers; 
+import utils.General; 
+import xemt_UI.RemoveRequestDemo_UI; 
 import java.net.MalformedURLException;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -15,6 +17,7 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 //	C7616	XE Money Transfer - Remove "Request a Demo"  
+// C6163	XE Marketing Pages - Update links 
 public class ID0006_RemoveRequestDemo {
 	private String baseUrl;
 	private WebDriver driver;
@@ -50,7 +53,10 @@ public class ID0006_RemoveRequestDemo {
 		checkrequestdemo("uk/");
 		general.openStartingPage(baseUrl+"xemoneytransfer/"+"business/", usedBrowser);
 		checkrequestdemobusiness();
-		
+		general.openStartingPage(baseUrl+"xemoneytransfer/",usedBrowser);
+		driver.findElement(By.cssSelector(".login")).click();
+		String text1 = driver.getCurrentUrl();
+		Assert.assertEquals(text1, "https://transfer.xe.com/account/login/home");
 	}
 	
 	
