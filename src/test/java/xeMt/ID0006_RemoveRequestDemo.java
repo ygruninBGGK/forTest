@@ -14,7 +14,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-
+//	C7616	XE Money Transfer - Remove "Request a Demo"  
 public class ID0006_RemoveRequestDemo {
 	private String baseUrl;
 	private WebDriver driver;
