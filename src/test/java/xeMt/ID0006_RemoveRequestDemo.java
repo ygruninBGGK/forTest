@@ -4,7 +4,6 @@ import org.testng.annotations.Test;
 
 import utils.Browsers; 
 import utils.General; 
-import xemt_UI.RemoveRequestDemo_UI; 
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.By;
@@ -21,7 +20,6 @@ import org.testng.annotations.Parameters;
 public class ID0006_RemoveRequestDemo {
 	private String baseUrl;
 	private WebDriver driver;
-	private RemoveRequestDemo_UI demo;
 	private General general;
 	private String usedBrowser;
 	
@@ -31,7 +29,6 @@ public class ID0006_RemoveRequestDemo {
 		usedBrowser = browser;
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
-		demo =  PageFactory.initElements(driver, RemoveRequestDemo_UI.class);
 		baseUrl = url;
 		
 	}

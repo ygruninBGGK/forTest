@@ -11,6 +11,7 @@
       <class name="xeMt.ID0003_XemtBusinessenquiry"/>
       <class name="xeMt.ID0004_XemtPersonalLastTabs"/> 
       <class name="xeMt.ID0005_XemtBusinessLastTabs"/> 
+      <class name="xeMt.ID0006_RemoveRequestDemo"/> 
       <class name="xeMt.ID0007_RiaPage"/> 
     </classes>
   </test> <!-- Test -->
