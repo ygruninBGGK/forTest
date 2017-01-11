@@ -39,101 +39,38 @@ public class ID0006_RemoveRequestDemo {
 		//driver.get(baseUrl);
 		general.openStartingPage(baseUrl, usedBrowser);
 		general.openStartingPage(baseUrl+"xemoneytransfer/"+"nz/",usedBrowser);
-		checkrequestdemonz();
+		checkrequestdemo("nz/");
 		general.openStartingPage(baseUrl+"xemoneytransfer/"+"au/",usedBrowser);
-		checkrequestdemoau();
+		checkrequestdemo("au/");
 		general.openStartingPage(baseUrl+"xemoneytransfer/"+"ca/",usedBrowser);
-		checkrequestdemoca();
+		checkrequestdemo("ca/");
 		general.openStartingPage(baseUrl+"xemoneytransfer/"+"us/",usedBrowser);
-		checkrequestdemous();
+		checkrequestdemo("us/");
 		general.openStartingPage(baseUrl+"xemoneytransfer/"+"uk/",usedBrowser);
-		checkrequestdemouk();
+		checkrequestdemo("uk/");
 		general.openStartingPage(baseUrl+"xemoneytransfer/"+"business/", usedBrowser);
 		checkrequestdemobusiness();
 		
 	}
 	
 	
-	public void checkrequestdemonz()
+	public void checkrequestdemo(String local)
 	{
-		driver.get(baseUrl+"xemoneytransfer/"+"nz/"+"/#whyxe/");
+		driver.get(baseUrl+"xemoneytransfer/"+local+"/#whyxe/");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"nz/"+"/#howitworks/");
+		driver.get(baseUrl+"xemoneytransfer/"+local+"/#howitworks/");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"nz/"+"/#currencies");
+		driver.get(baseUrl+"xemoneytransfer/"+local+"/#currencies");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"nz/"+"/#greatratesnofees/");
+		driver.get(baseUrl+"xemoneytransfer/"+local+"/#greatratesnofees/");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"nz/"+"/#trustedbrand/");
+		driver.get(baseUrl+"xemoneytransfer/"+local+"/#trustedbrand/");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"nz/"+"/#securereliable/");
+		driver.get(baseUrl+"xemoneytransfer/"+local+"/#securereliable/");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
 		}
 	
-	public void checkrequestdemoau()
-	{
-		driver.get(baseUrl+"xemoneytransfer/"+"au/"+"/#whyxe/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"au/"+"/#howitworks/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"au/"+"/#currencies");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"au/"+"/#greatratesnofees/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"au/"+"/#trustedbrand/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"au/"+"/#securereliable/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		}
-	
-	public void checkrequestdemoca()
-	{
-		driver.get(baseUrl+"xemoneytransfer/"+"ca/"+"/#whyxe/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"ca/"+"/#howitworks/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"ca/"+"/#currencies");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"ca/"+"/#greatratesnofees/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"ca/"+"/#trustedbrand/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"ca/"+"/#securereliable/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		}
-	
-	public void checkrequestdemous()
-	{
-		driver.get(baseUrl+"xemoneytransfer/"+"us/"+"/#whyxe/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"us/"+"/#howitworks/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"us/"+"/#currencies");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"us/"+"/#greatratesnofees/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"us/"+"/#trustedbrand/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"us/"+"/#securereliable/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		}
-	
-	public void checkrequestdemouk()
-	{
-		driver.get(baseUrl+"xemoneytransfer/"+"uk/"+"/#whyxe/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"uk/"+"/#howitworks/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"uk/"+"/#currencies");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"uk/"+"/#greatratesnofees/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"uk/"+"/#trustedbrand/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"uk/"+"/#securereliable/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		}
-	
+
 	public void checkrequestdemobusiness()
 	{
 		driver.get(baseUrl+"xemoneytransfer/"+"/#whyxe/");
@@ -145,11 +82,11 @@ public class ID0006_RemoveRequestDemo {
 		driver.get(baseUrl+"xemoneytransfer/"+"/#currencies");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
 		driver.get(baseUrl+"xemoneytransfer/"+"/#trustedbrand/");
-		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
+	    Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
 		driver.get(baseUrl+"xemoneytransfer/"+"/#securereliable/");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
 		}
-	
+
 	
 	
 	 @AfterClass
