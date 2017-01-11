@@ -41,7 +41,6 @@ public class ID0006_LoadToolsandServiceBoxes {
 }
 	 @Test
      public void loadTools() throws InterruptedException {
-		 
 		 general.openStartingPage(baseUrl, usedBrowser);
 		 String text1 =   load.heading_UI.getText();
 		 Assert.assertEquals(text1,"Currency rates on-the-go ▶");
@@ -80,24 +79,22 @@ public class ID0006_LoadToolsandServiceBoxes {
 		 driver.get(baseUrl+"currencycharts");
 		 Externalad();
 		 String txt8 =   load.pageDownload_UI.get(0).getText();
-		 Assert.assertEquals(txt8,"Download now ▶");
-		 
+		 Assert.assertEquals(txt8,"Download now ▶");	 
 	 }
 		 
 	     private void Externalad(){
-		 
-		 String text8 =   load.inputPage_UI.get(0).getText();
-		 Assert.assertEquals(text8,"Currency rates on-the-go ▶");
-		 String txt2 =   load.paragraph_UI.get(0).getText();
-		 Assert.assertEquals(txt2,"Download the FREE XE Currency App for smartphone or tablet to");
-		 String txt3 =   load.paragraph_UI.get(1).getText();
-		 Assert.assertEquals(txt3,"Available for iPhone, iPad, Android, Blackberry, Windows, Firefox OS devices.");
-		 String txt4 =   load.options_UI.get(0).getText();
-		 Assert.assertEquals(txt4,"Access live exchange rates");
-		 String txt5 =   load.options_UI.get(1).getText();
-		 Assert.assertEquals(txt5,"Calculate prices");
-		 String txt6 =   load.options_UI.get(2).getText();
-		 Assert.assertEquals(txt6,"View historical rate charts");
+			 String text8 =   load.inputPage_UI.get(0).getText();
+			 Assert.assertEquals(text8,"Currency rates on-the-go ▶");
+			 String txt2 =   load.paragraph_UI.get(0).getText();
+			 Assert.assertEquals(txt2,"Download the FREE XE Currency App for smartphone or tablet to");
+			 String txt3 =   load.paragraph_UI.get(1).getText();
+			 Assert.assertEquals(txt3,"Available for iPhone, iPad, Android, Blackberry, Windows, Firefox OS devices.");
+			 String txt4 =   load.options_UI.get(0).getText();
+			 Assert.assertEquals(txt4,"Access live exchange rates");
+			 String txt5 =   load.options_UI.get(1).getText();
+			 Assert.assertEquals(txt5,"Calculate prices");
+			 String txt6 =   load.options_UI.get(2).getText();
+			 Assert.assertEquals(txt6,"View historical rate charts");
 		 }
 		 
 	 
