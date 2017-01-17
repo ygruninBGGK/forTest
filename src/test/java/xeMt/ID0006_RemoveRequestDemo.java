@@ -17,7 +17,8 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 //	C7616	XE Money Transfer - Remove "Request a Demo"  
-// C6163	XE Marketing Pages - Update links 
+// C6163	XE Marketing Pages - Update links
+// C7618	XE Money Transfer - Develop information pages 
 public class ID0006_RemoveRequestDemo {
 	private String baseUrl;
 	private WebDriver driver;
@@ -57,6 +58,13 @@ public class ID0006_RemoveRequestDemo {
 		driver.findElement(By.cssSelector(".login")).click();
 		String text1 = driver.getCurrentUrl();
 		Assert.assertEquals(text1, "https://transfer.xe.com/account/login/home");
+		general.openStartingPage(baseUrl+"xemoneytransfer/",usedBrowser);
+		demo.footerContent_UI.get(14).click();
+		String text2 = driver.getCurrentUrl();
+		Assert.assertEquals(text2, "http://gamma.xe.com/xemoneytransfer/information.php");
+		String text3 =   demo.sectionTitle_UI.getText();
+		Assert.assertEquals(text3,"XE Money Transfer - Important Information");
+		
 	}
 	
 	
