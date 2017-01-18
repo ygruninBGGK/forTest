@@ -5,7 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class RemoveRequestDemo_UI {
+public class RemoveRequest_UI {
 
   // Region switch ca
 	@FindBy(css = ".regionSwitch a")

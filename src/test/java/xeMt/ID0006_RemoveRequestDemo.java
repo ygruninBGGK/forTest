@@ -1,11 +1,10 @@
 package xeMt;
 
 import org.testng.annotations.Test;
-
 import utils.Browsers; 
-import utils.General; 
+import utils.General;
+import xemt_UI.RemoveRequest_UI;
 import java.net.MalformedURLException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -23,6 +22,7 @@ public class ID0006_RemoveRequestDemo {
 	private WebDriver driver;
 	private General general;
 	private String usedBrowser;
+	private RemoveRequest_UI demo;
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
@@ -30,6 +30,7 @@ public class ID0006_RemoveRequestDemo {
 		usedBrowser = browser;
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
+		demo = PageFactory.initElements(driver,RemoveRequest_UI.class);
 		baseUrl = url;
 		
 	}
