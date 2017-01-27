@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -35,7 +36,7 @@ public class ID0001_RemoveBetaTest {
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal") String browser) throws MalformedURLException, InterruptedException {
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox") String browser) throws MalformedURLException, InterruptedException {
 		driver = Browsers.getDriver(browser);
 		home = PageFactory.initElements(driver, removeBetatest_UI.class);
 		baseUrl = url;
@@ -46,6 +47,7 @@ public class ID0001_RemoveBetaTest {
   public void a_redirecttoXecom(){
 	  
 	  driver.get(baseUrl);
+	  driver.manage().window().setSize(new Dimension(1920, 1080));
 	  driver.get(baseUrl+"sitemap.php");
 	  Assert.assertFalse(driver.getPageSource().contains("beta"));
 	  driver.get(baseUrl+"tools.php");
