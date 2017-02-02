@@ -21,7 +21,7 @@ public class Browsers {
 			if (browser.equals("firefoxLocal")){
 				return new FirefoxDriver();
 			}
-			return new RemoteWebDriver(new URL("http://172.16.21.110:4444/wd/hub"), getBrowserCapabilities(browser));
+			return new RemoteWebDriver(new URL("http://172.16.21.21:4444/wd/hub"), getBrowserCapabilities(browser));
 			
 		}
 		
