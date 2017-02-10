@@ -46,7 +46,9 @@ public class WhyXePage {
       @FindBy(css = ".tabPane h1")
 	  public List<WebElement> heading_UI;
    
-        
+     // heading h2 
+      @FindBy(css = ".tabPane h2")
+	  public List<WebElement> modifiedheading_UI;
 	
 	//main text on a page
       @FindBy(css = ".whyXEMainContent")
