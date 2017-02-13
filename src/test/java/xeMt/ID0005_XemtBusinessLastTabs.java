@@ -57,7 +57,7 @@ public class ID0005_XemtBusinessLastTabs {
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox")String browser) throws MalformedURLException, InterruptedException {	
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal")String browser) throws MalformedURLException, InterruptedException {	
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
 		lasttabs =  PageFactory.initElements(driver, BusinessLasttabs_UI.class);
@@ -182,20 +182,20 @@ public class ID0005_XemtBusinessLastTabs {
 		  //content Trusted brand
 		   driver.get(baseUrl+"xemoneytransfer/business/"+"#trustedbrand");
    		  Thread.sleep(2000); 
-		  String text4 =  lasttabs.tabPane_UI.get(8).getText();
+		  String text4 =  lasttabs.tabPane_UI.get(11).getText();
 		  Assert.assertEquals(text4,"Over the past 20 years, we've earned the trust of millions of people worldwide through our transparent exchange rates and free currency tools. With XE Money Transfers, we continue to build this trust by offering a service that exemplifies respect for customers.");
-		  String text5 =  lasttabs.tabPane_UI.get(9).getText();
+		  String text5 =  lasttabs.tabPane_UI.get(12).getText();
 		  Assert.assertEquals(text5,"Trust us for your next money transfer. Join now:");
 		  //Content Secure and reliable
 		  driver.get(baseUrl+"xemoneytransfer/business/"+"#securereliable");
 		  Thread.sleep(2000); 
- 		  String txt1 =  lasttabs.heading_UI.get(5).getText();
+ 		  String txt1 =  lasttabs.changedheading_UI.get(4).getText();
  		  Assert.assertEquals(txt1,"Your security is our priority.");
  		  Thread.sleep(2000);  
  		  String txt2 =  lasttabs.featureSecurityclearfix_UI.get(0).getText();
  		  Assert.assertEquals(txt2,"Secure"+"\n"+"We take the greatest care in ensuring the security of XE Money Transfer. That's why we use Norton security – 97 of the world's 100 largest banks and over 93% of Fortune 500 companies use Norton. In addition, Norton secures more than one million Web servers worldwide."+"\n"+"Reliable"+"\n"+"With XE Money Transfer you can make transfers, manage your account and track payments 24 hours a day, 7 days a week. We'll keep you up to date with your transaction via SMS and email. If you choose, we can inform your recipients when your funds are on their way."+"\n"+"Regulated"+"\n"+"We take our legal responsibilities very seriously. Where required, our provider has regulatory approval in every country that we operate in including FinCen in the USA, the Financial Conduct Authority (under the Payment Services Regulations for the provision of payment services) in the UK, ASIC in Australia and the FMA in New Zealand."+"\n"+"Peace of Mind"+"\n"+"In 2015, XE became part of Euronet Worldwide, Inc. (NASDAQ: EEFT), recognized leaders in providing global financial services. Last year, our group transacted over $11 billion for 112,000 clients in 117 countries.");          
  		  Thread.sleep(2000);
- 		  String text8 =  lasttabs.tabPane_UI.get(10).getText();
+ 		  String text8 =  lasttabs.tabPane_UI.get(14).getText();
  		  Assert.assertEquals(text8,"Trust us for your next money transfer. Join now:");
 		   
          }
