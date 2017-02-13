@@ -10,15 +10,22 @@ public class PersonalLastTabs_UI {
 	
 	 @FindBy(css = ".tabPane h1")
 	  public List<WebElement> heading_UI;
+	 
+	 @FindBy(css = ".tabPane h2")
+	  public List<WebElement> changedheading_UI; 
+	 
 	 // Tabs Pane
      @FindBy(css = ".tabPane p")
 	   public List<WebElement> tabPane_UI;
+     
      //pull-left
      @FindBy(css = ".pull-left")
 	   public List<WebElement> pullLeft_UI;
-      // JoIn NOw
+     
+     // JoIn NOw
      @FindBy(css = ".joinNow p")
 	   public List<WebElement> joinNow_UI;
+     
      
      // featureIcons inline threeItems clearfix liArrows
      @FindBy(css = ".featureIcons.inline.threeItems.clearfix.liArrows")
