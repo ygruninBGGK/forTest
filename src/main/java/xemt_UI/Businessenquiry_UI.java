@@ -72,7 +72,7 @@ public class Businessenquiry_UI {
 	public WebElement footer_UI;
 	
 	// sign up overlay
-	@FindBy(css = "#businessSignupOverlay h1")
+	@FindBy(css = "#businessSignupOverlay h2")
 	public WebElement signupOverlay_UI;
 	
 	// account type choice
