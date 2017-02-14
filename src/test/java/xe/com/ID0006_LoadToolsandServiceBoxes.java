@@ -32,7 +32,7 @@ public class ID0006_LoadToolsandServiceBoxes {
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox")String browser) throws MalformedURLException {	
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal")String browser) throws MalformedURLException {	
 		usedBrowser = browser;
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
@@ -43,9 +43,9 @@ public class ID0006_LoadToolsandServiceBoxes {
      public void loadTools() throws InterruptedException {
 		 general.openStartingPage(baseUrl, usedBrowser);
 		 String text1 =   load.heading_UI.getText();
-		 Assert.assertEquals(text1,"Currency rates on-the-go ▶");
+		 Assert.assertEquals(text1,"Send a cheap money transfer ▶");
 		 String text2 =   load.paragraph_UI.get(0).getText();
-		 Assert.assertEquals(text2,"Download the FREE XE Currency App for smartphone or tablet to");
+		 Assert.assertEquals(text2,"Looking to send money abroad? Transferring money online is easy with XE. Our service works with your bank and it's free to sign up.");
 		 String text3 =   load.paragraph_UI.get(1).getText();
 		 Assert.assertEquals(text3,"Available for iPhone, iPad, Android, Blackberry, Windows, Firefox OS devices.");
 		 String text4 =   load.options_UI.get(0).getText();

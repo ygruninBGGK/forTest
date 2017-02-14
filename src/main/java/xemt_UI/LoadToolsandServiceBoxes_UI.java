@@ -30,4 +30,5 @@ public class LoadToolsandServiceBoxes_UI {
     //  download button
     @FindBy(css = ".modFtr a")
 	   public List<WebElement> pageDownload_UI;
+    
 }
