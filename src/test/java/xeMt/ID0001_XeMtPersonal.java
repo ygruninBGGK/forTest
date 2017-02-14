@@ -128,31 +128,35 @@ public class ID0001_XeMtPersonal {
 		// Check the content for Nz
 		driver.get(baseUrl + "/xemoneytransfer/" + "/nz/" + "#currencies");
 		checkContent2();
-		String text13 = home.TabPane_UI.get(6).getText();
+		String text13 = home.TabPane_UI.get(8).getText();
 		Assert.assertEquals(text13,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		checkContent3();
 		// Check the content for AU
 		driver.get(baseUrl + "/xemoneytransfer/" + "/au/" + "#currencies");
 		checkContent2();
-		String text14 = home.TabPane_UI.get(6).getText();
+		String text14 = home.TabPane_UI.get(8).getText();
 		Assert.assertEquals(text14,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		checkContent3();
 		// check the content for ca
 		driver.get(baseUrl + "/xemoneytransfer/" + "/ca/" + "#currencies");
 		checkContent2();
-		String text15 = home.TabPane_UI.get(6).getText();
+		String text15 = home.TabPane_UI.get(8).getText();
 		Assert.assertEquals(text15,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		checkContent4();
 		// check the content for US
 		driver.get(baseUrl + "/xemoneytransfer/" + "/us/" + "#currencies");
 		checkContent2();
-		String text16 = home.TabPane_UI.get(8).getText();
+		String text16 = home.TabPane_UI.get(10).getText();
 		Assert.assertEquals(text16,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		checkContent4();
 		// check the content for UK
 		driver.get(baseUrl + "/xemoneytransfer/" + "/uk/" + "#currencies");
-		checkContent2();
-		String text17 = home.TabPane_UI.get(8).getText();
+		Thread.sleep(1000);
+		home.tabsList_UI.get(2).findElement(By.cssSelector("a")).click();
+		List<WebElement> h1 = driver.findElements(By.cssSelector(".tabPane h2"));
+		String text12 = h1.get(3).getText();
+		Assert.assertEquals(text12, "Your money to the currency you need");
+		String text17 = home.TabPane_UI.get(10).getText();
 		Assert.assertEquals(text17,"We trade in 60 world currencies and you can transfer money to over 170 countries.");
 		checkContent5();
 	}
@@ -186,9 +190,9 @@ public class ID0001_XeMtPersonal {
 	// Content - How it works
 	private void checkContent1() throws InterruptedException  {
 		Thread.sleep(1000);
-		general.waitElementIsPresented(home.heading_UI.get(1));
+		general.waitElementIsPresented(home.modifiedheading_UI.get(1));
 
-		String text8 = home.heading_UI.get(1).getText();
+		String text8 = home.modifiedheading_UI.get(1).getText();
 		Assert.assertEquals(text8, "Fast and really easy to use");
 		String txt1 = home.fourItems.get(0).findElement(By.cssSelector(".desc")).getText();
 		Assert.assertEquals(txt1, "To get a free quote choose the currencies and amount you want to send.");
@@ -207,7 +211,7 @@ public class ID0001_XeMtPersonal {
 
 		Thread.sleep(1000);
 		home.tabsList_UI.get(2).findElement(By.cssSelector("a")).click();
-		List<WebElement> h1 = driver.findElements(By.cssSelector(".tabPane h1"));
+		List<WebElement> h1 = driver.findElements(By.cssSelector(".tabPane h2"));
 		String text12 = h1.get(2).getText();
 		Assert.assertEquals(text12, "Your money to the currency you need");
 
