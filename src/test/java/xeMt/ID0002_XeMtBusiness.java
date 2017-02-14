@@ -34,7 +34,7 @@ public class ID0002_XeMtBusiness {
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox")String browser) throws MalformedURLException, InterruptedException {	
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal")String browser) throws MalformedURLException, InterruptedException {	
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
 		firsttabs =  PageFactory.initElements(driver, BusinessFirsttabs_UI.class);
@@ -76,7 +76,7 @@ public class ID0002_XeMtBusiness {
 		  Assert.assertEquals(text10,"Join now and see how much your business can save:");
 		  driver.get(baseUrl+"xemoneytransfer/business/"+"#features");
 		  Thread.sleep(2000);
-		  String txt2=  firsttabs.heading_UI.get(1).getText();
+		  String txt2=  firsttabs.changedheading_UI.get(0).getText();
 		  Assert.assertEquals(txt2,"Easy to use and feature rich");
 		  String txt5 =  firsttabs.featureIconsInlineclearfix_UI.get(6).getText();
 		  Assert.assertEquals(txt5,"Great rates"+"\n"+"Competitive exchange rates and low fees with the ability to track and make payments online 24/7.");
