@@ -46,7 +46,7 @@ public class ID0003_XemtBusinessenquiry {
 		p.get(0).click();
 		Thread.sleep(2000);
 		String text16 = enquiry.signupOverlay_UI.getText();
-	    Assert.assertEquals(text16, "Annual FX volume");
+	    Assert.assertEquals(text16, "Annual FX Volume");
 		String text17 = enquiry.accountChoice_UI.getText();
 		Assert.assertEquals(text17, "Choose your account type");
 		driver.findElement(By.cssSelector(".button.medium.under1m.green.inline.roundedCorners")).click();
