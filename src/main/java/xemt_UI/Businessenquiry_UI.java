@@ -1,10 +1,8 @@
 package xemt_UI;
 
 import java.util.List;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 public class Businessenquiry_UI {
 
 	// button large green roundedCorners
@@ -72,7 +70,7 @@ public class Businessenquiry_UI {
 	public WebElement footer_UI;
 	
 	// sign up overlay
-	@FindBy(css = "#businessSignupOverlay h1")
+	@FindBy(css = "#businessSignupOverlay h2")
 	public WebElement signupOverlay_UI;
 	
 	// account type choice
