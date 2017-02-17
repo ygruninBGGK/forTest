@@ -1,10 +1,8 @@
 package xemt_UI;
 
 import java.util.List;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 public class Businessenquiry_UI {
 
 	// button large green roundedCorners
