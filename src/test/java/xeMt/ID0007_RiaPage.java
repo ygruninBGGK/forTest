@@ -2,10 +2,7 @@ package xeMt;
 
 import java.net.MalformedURLException;
 import java.util.List;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -29,9 +26,9 @@ public class ID0007_RiaPage {
 
 	@Parameters({ "BaseUrl", "browser" })
 	@BeforeClass
-	public void BaseUrl(@Optional("http://www.xe.com/") String url, @Optional("firefox") String browser)
+	public void BaseUrl(@Optional("http://www.xe.com/") String url, @Optional("firefoxLocal") String browser)
 			throws MalformedURLException, InterruptedException {
-		usedBrowser = browser;
+		//usedBrowser = browser;
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
 		page = PageFactory.initElements(driver, RiaProductpage_UI.class);
@@ -40,7 +37,8 @@ public class ID0007_RiaPage {
 	@Test
 	public void riapage() throws InterruptedException{
 		
-		general.openStartingPage(baseUrl+"riamoneytransfer", usedBrowser);
+		//general.openStartingPage(baseUrl+"riamoneytransfer", usedBrowser);
+		driver.get(baseUrl+"riamoneytransfer");
 		String txt01 = page.mainContent_UI.getText();
 		Assert.assertEquals(txt01, "Meet XE's Sister Company: Ria Money Transfer");
 		String txt02 = page.riaParagraph_UI.getText();
@@ -74,7 +72,7 @@ public class ID0007_RiaPage {
 		String txt14 = page.container_UI.getText();
 		Assert.assertEquals(txt14, "We're sorry, registration is not yet available in your country");
 		String txt15 = page.containerParagraph_UI.get(0).getText();
-		Assert.assertEquals(txt15, "Currently, only users in the USA may send money. However, you can still receive money in over 144 countries around the world.");
+		Assert.assertEquals(txt15, "Currently, only users in the USA, Spain, or Australia may send money. However, you can still receive money in over 144 countries around the world.");
 		String txt16 = page.containerParagraph_UI.get(1).getText();
 		Assert.assertEquals(txt16, "To be notified about when our money transfer service will be available in your country, please type your email address below.");
 	}
