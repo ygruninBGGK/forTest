@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 public class LoadToolsandServiceBoxes_UI {
 
 	// heading for ad box
-    @FindBy(css = ".service.index-apps.featuredProducts h2 a")
+    @FindBy(css = ".service.index-xetrade.featuredProducts h2 a")
 	   public WebElement heading_UI;
     
     //paragraph
