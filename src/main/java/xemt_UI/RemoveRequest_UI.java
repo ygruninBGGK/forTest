@@ -15,6 +15,11 @@ public class RemoveRequest_UI {
 	@FindBy(id = "footerContent a")
 	public List<WebElement> footerContent_UI;
 	
+// important informaiton page
+	@FindBy(css = ".inner.generic a")
+	public List<WebElement> information_UI;
+	
+	
 //important information page heading
 	@FindBy(css = ".sectionTitle")
 	 public WebElement sectionTitle_UI;

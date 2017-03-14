@@ -26,11 +26,11 @@ public class ID0006_RemoveRequestDemo {
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
-    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox")String browser) throws MalformedURLException, InterruptedException {	
+    public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal")String browser) throws MalformedURLException, InterruptedException {	
 		usedBrowser = browser;
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
-		demo = PageFactory.initElements(driver,RemoveRequest_UI.class);
+		demo = PageFactory.initElements(driver, RemoveRequest_UI.class);
 		baseUrl = url;
 		
 	}
@@ -56,46 +56,45 @@ public class ID0006_RemoveRequestDemo {
 		driver.findElement(By.cssSelector(".login")).click();
 		String text1 = driver.getCurrentUrl();
 		Assert.assertEquals(text1, "https://transfer.xe.com/account/login/home");
-		general.openStartingPage(baseUrl+"xemoneytransfer/",usedBrowser);
-		demo.footerContent_UI.get(14).click();
-		String text2 = driver.getCurrentUrl();
-		Assert.assertEquals(text2, "http://gamma.xe.com/xemoneytransfer/information.php");
-		String text3 =   demo.sectionTitle_UI.getText();
-		Assert.assertEquals(text3,"XE Money Transfer - Important Information");
+		Thread.sleep(2000);
+//		demo.information_UI.get(0).click();   
+//		String text2 = driver.getCurrentUrl();
+//		Assert.assertEquals(text2, "http://gamma.xe.com/xemoneytransfer/information.php");
+//		String text3 =   demo.sectionTitle_UI.getText();
+//		Assert.assertEquals(text3,"XE Money Transfer - Important Information");
 		
-	}
-	
+	} 
 	
 	public void checkrequestdemo(String local)
 	{
-		driver.get(baseUrl+"xemoneytransfer/"+local+"/#whyxe/");
+		//driver.get(baseUrl+"xemoneytransfer/"+local+"/#whyxe");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+local+"/#howitworks/");
+		driver.get(baseUrl+"xemoneytransfer/"+local+"#howitworks");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+local+"/#currencies");
+		driver.get(baseUrl+"xemoneytransfer/"+local+"#currencies");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+local+"/#greatratesnofees/");
+		driver.get(baseUrl+"xemoneytransfer/"+local+"#greatratesnofees");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+local+"/#trustedbrand/");
+		driver.get(baseUrl+"xemoneytransfer/"+local+"#trustedbrand");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+local+"/#securereliable/");
+		driver.get(baseUrl+"xemoneytransfer/"+local+"#securereliable");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
 		}
 	
 
 	public void checkrequestdemobusiness()
 	{
-		driver.get(baseUrl+"xemoneytransfer/"+"/#whyxe/");
+		//driver.get(baseUrl+"xemoneytransfer/"+"/#whyxe");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"/#features/");
+		driver.get(baseUrl+"xemoneytransfer/"+"business/"+"#features");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"/#howitworks/");
+		driver.get(baseUrl+"xemoneytransfer/"+"business/"+"#howitworks");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"/#currencies");
+		driver.get(baseUrl+"xemoneytransfer/"+"business/"+"#currencies");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"/#trustedbrand/");
+		driver.get(baseUrl+"xemoneytransfer/"+"business/"+"#trustedbrand");
 	    Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
-		driver.get(baseUrl+"xemoneytransfer/"+"/#securereliable/");
+		driver.get(baseUrl+"xemoneytransfer/"+"business/"+"#securereliable");
 		Assert.assertFalse(driver.getPageSource().contains("Request Demo"));
 		}
 
