@@ -91,7 +91,7 @@ public class ID0004_XemtPersonalLastTabs {
 		   driver.get(baseUrl+"/xemoneytransfer/"+"/ca/"+"#greatratesnofees");
 		   Thread.sleep(3000);
 		   String text8 =  home.tabPane_UI.get(11).getText();
-		   Assert.assertEquals(text8,"We use an independent company to check all the main US banks to make sure our overall price (including bank charges, exchange rates and other fees) is better. We save you money in two ways:");
+		   Assert.assertEquals(text8,"We use an independent company to check all the main Canadian banks to make sure our overall price (including bank charges, exchange rates and other fees) is better. We save you money in two ways:");
 		   String text33 =  home.pullLeft_UI.get(7).getText();
 		   Assert.assertEquals(text33,"Our fees are simple: $0"+"\n"+"All transfers with XE Money Transfer are fee free. Sign up to access fee free transfers and great exchange rates. Existing customers log in to make a transfer now.");
 		   Thread.sleep(2000);
