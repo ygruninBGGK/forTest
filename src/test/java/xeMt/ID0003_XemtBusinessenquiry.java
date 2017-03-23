@@ -56,6 +56,7 @@ public class ID0003_XemtBusinessenquiry {
 		List<WebElement> p1 = driver.findElements(By.cssSelector(".button.large.green.roundedCorners"));
 		p1.get(0).click();
 		driver.findElement(By.cssSelector(".button.medium.over1m.green.inline.roundedCorners")).click();
+		general.wait10sec();
 		String text1 = enquiry.moduleHeading_UI.getText();
 		Assert.assertEquals(text1, "Business Account Enquiry");
 		String text2 = enquiry.moduleParagraph_UI.getText();
