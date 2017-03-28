@@ -43,8 +43,7 @@ public class ID0006_LoadToolsandServiceBoxes {
 		 //general.openStartingPage(baseUrl, usedBrowser);
 		 driver.get(baseUrl);
 		 String text1 =   load.heading_UI.getText();
-
-		 Assert.assertEquals(text1,"XE Money Transfer ▶");
+		 Assert.assertEquals(text1,"XE Money Transfer");
 		 String text2 =   load.paragraph_UI.get(0).getText();
 		 Assert.assertEquals(text2,"Transfer money online with XE.");
 		 String text4 =   load.options_UI.get(0).getText();
@@ -58,7 +57,7 @@ public class ID0006_LoadToolsandServiceBoxes {
 		 //input page
 		 driver.get(baseUrl+"currencyconverter/");
 		 String text9 =   load.inputPage_UI.get(0).getText();
-		 Assert.assertEquals(text9,"No Fee Transfers ▶");
+		 Assert.assertEquals(text9,"No Fee Transfers");
 		 String text10 =   load.paragraph_UI.get(0).getText();
 		 Assert.assertEquals(text10,"For personal or business use, send an international money transfer with XE.");
 		 String text12 =   load.options_UI.get(0).getText();
@@ -70,16 +69,16 @@ public class ID0006_LoadToolsandServiceBoxes {
 
 		 //output Page
 		 driver.findElement(By.id("ucc_go_btn_svg")).click();
-		 
-		 
+		 String text8 =   load.outputPage_UI.getText();
+		 Assert.assertEquals(text8,"Send Money with XE");
 		 Externalad();
-
-
 		 String txt7 =   load.pageDownload_UI.get(1).getText();
 		 Assert.assertEquals(txt7,"Transfer Money Now ▶");
 
 		 //currency chart
 		 driver.get(baseUrl+"currencycharts");
+		 String text11 =   load.chartPage_UI.getText();
+		 Assert.assertEquals(text11,"Send Money with XE");
 		 Externalad();
 		 String txt8 =   load.pageDownload_UI.get(0).getText();
 		 Assert.assertEquals(txt8,"Transfer Money Now ▶");	 
@@ -89,8 +88,7 @@ public class ID0006_LoadToolsandServiceBoxes {
 
 		 
 	     private void Externalad(){
-			 String text8 =   load.inputPage_UI.get(0).getText();
-			 Assert.assertEquals(text8,"Send Money with XE ▶");
+			 
 			 String txt3 =   load.paragraph_UI.get(0).getText();
 			 Assert.assertEquals(txt3,"Transfer money online with XE.");
 			 String txt4 =   load.options_UI.get(0).getText();
