@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 public class LoadToolsandServiceBoxes_UI {
 
 	// heading for ad box
-       @FindBy(css = ".service.index-xetrade.featuredProducts h2 a")
+       @FindBy(css = ".service.index-xetrade.featuredProducts h2")
 	   public WebElement heading_UI;
     
     // list of bullets
@@ -32,9 +32,18 @@ public class LoadToolsandServiceBoxes_UI {
 	   public List<WebElement> servicelink_UI;
     
     // heading for ad box in input page
-       @FindBy(css = ".featuredServicesLnkTop.servicesLinkTitle a")
+       @FindBy(css = ".service.ucc-xetrade.featuredProducts h2")
 	   public List<WebElement> inputPage_UI;
+       
     
+    // heading for ad box in output page
+       @FindBy(css = ".service.ucc_convert-xetrade.featuredProducts h2")
+	   public WebElement outputPage_UI;
+       
+    // heading for ad box in Chart page
+       @FindBy(css = ".service.freecharts-xetrade.featuredProducts h2")
+	   public WebElement chartPage_UI;
+       
     // download button
        @FindBy(css = ".modFtr a")
 	   public List<WebElement> pageDownload_UI;
