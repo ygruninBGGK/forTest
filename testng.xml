@@ -18,6 +18,7 @@
   <test name="Xe General">
     <classes>
     	<class name="xe.com.ID0001_RemoveBetaTest"/>
+        <class name="xe.com.ID0005_AnnualNewsletterSignUp"/>
         <class name="xe.com.ID0003_FooterHeader"/>
         <class name="xe.com.ID0006_LoadToolsandServiceBoxes"/>
     </classes>
