@@ -69,6 +69,7 @@ public class ID0007_RiaPage {
 		String txt13 = page.logoContainer_UI.get(1).getText();
 		Assert.assertEquals(txt13, "Learn More");
 		page.greenButton_UI.click();
+	    general.wait10sec();
 		String txt14 = page.container_UI.getText();
 		Assert.assertEquals(txt14, "We're sorry, registration is not yet available in your country");
 		String txt15 = page.containerParagraph_UI.get(0).getText();
