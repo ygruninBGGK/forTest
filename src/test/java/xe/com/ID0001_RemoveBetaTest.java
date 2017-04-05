@@ -56,7 +56,8 @@ public class ID0001_RemoveBetaTest {
   
   @Test
   public void b_redirecttoXecomBetaNotFound() throws InterruptedException{
-	
+	  
+	  Thread.sleep(2000);
 	  driver.get(baseUrl);
 	  driver.get(baseUrl+"beta");
 	  Thread.sleep(2000);
