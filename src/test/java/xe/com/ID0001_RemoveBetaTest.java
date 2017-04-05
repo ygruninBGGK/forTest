@@ -18,6 +18,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import utils.Browsers;
+import utils.General;
 import xecom_UI.removeBetatest_UI;
 import xemt_UI.Businessenquiry_UI;
 
@@ -32,12 +33,14 @@ public class ID0001_RemoveBetaTest {
 	private String baseUrl;
 	private WebDriver driver;
     private removeBetatest_UI home;
+    private General general;
 	
 	
 	@Parameters({"BaseUrl","browser"})
     @BeforeClass
     public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox") String browser) throws MalformedURLException, InterruptedException {
 		driver = Browsers.getDriver(browser);
+		general = PageFactory.initElements(driver, General.class);
 		home = PageFactory.initElements(driver, removeBetatest_UI.class);
 		baseUrl = url;
 	}
@@ -57,10 +60,10 @@ public class ID0001_RemoveBetaTest {
   @Test
   public void b_redirecttoXecomBetaNotFound() throws InterruptedException{
 	  
-	  Thread.sleep(2000);
+	  
 	  driver.get(baseUrl);
 	  driver.get(baseUrl+"beta");
-	  Thread.sleep(2000);
+	  general.wait10sec();  
       String txt01 = home.moduleClearfix_UI.getText();
 	  Assert.assertEquals(txt01, "HTTP Status Code 404: Not Found");
 	  String txt02 =  home.subTitle_UI.getText();
