@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class RiaProductpage_UI {
 	// Ria Content Heading
-	    @FindBy(css = ".riaMainContent h1")
+	    @FindBy(css = ".riaWrapper.meetRiaContent.clearfix h1")
 	    public WebElement mainContent_UI;
 	
 	// Ria paragraph
@@ -23,24 +23,28 @@ public class RiaProductpage_UI {
 	    public WebElement whoIsRia_UI;
 	    
 	//  Who is Ria - paragraph
-	    @FindBy(css = ".whoIsRiaContent p")
+	    @FindBy(css = ".riaWrapper.meetRiaContent.clearfix p")
 	    public WebElement whoIsRiaparagraph_UI;
 	  
     // faq list
-		@FindBy(css = ".featureIcons.inline.fourItems.clearfix li")
+		@FindBy(css = ".riaWrapper.featureIcons.inline.threeItems.clearfix li")
 		public List<WebElement> featureIcons_UI;
 		
 	//  foot note
 	    @FindBy(css = ".footnote p")
 	    public WebElement footNote_UI;
 	    
-	//  riaLogoContainer 
-	    @FindBy(css = ".riaLogoContainer p")
-	    public List<WebElement> logoContainer_UI;
+	//  amazon offer paragraph
+	    @FindBy(css = ".amazonOfferText p")
+	    public WebElement amazonoffertext_UI;
+	    
+	//  amazon offer learn more
+	    @FindBy(css = ".amazonOfferText a")
+	    public WebElement amazonofferlink_UI;
 	    
 	// button click
-	    @FindBy(css = ".button.large.green.roundedCorners")
-	    public WebElement greenButton_UI;
+	    @FindBy(css = ".riaWrapper.meetRiaContent.clearfix a")
+	    public WebElement sendmoneybutton_UI;
 	
 	// Ria content for CA
 	    @FindBy(css = ".container-fluid h1")
@@ -50,5 +54,12 @@ public class RiaProductpage_UI {
 	    @FindBy(css = ".container-fluid p")
 	    public List<WebElement> containerParagraph_UI;
 	    
+	 // Content 
+	    @FindBy(css = ".trustedExpertContent h2")
+	    public WebElement trustedcontent_UI;
+	    
+	 // Content paragraph
+	    @FindBy(css = ".trustedExpertContent p")
+	    public WebElement trustedcontentparagraph_UI;
 	    
 }
