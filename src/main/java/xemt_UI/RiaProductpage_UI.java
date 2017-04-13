@@ -42,9 +42,11 @@ public class RiaProductpage_UI {
 	    @FindBy(css = ".amazonOfferText a")
 	    public WebElement amazonofferlink_UI;
 	    
-	// button click
-	    @FindBy(css = ".riaWrapper.meetRiaContent.clearfix a")
-	    public WebElement sendmoneybutton_UI;
+	// send money button
+	    @FindBy(css = ".button.large.orange.roundedCorners")
+	    public List<WebElement> sendmoneybutton_UI;
+
+	 
 	
 	// Ria content for CA
 	    @FindBy(css = ".container-fluid h1")

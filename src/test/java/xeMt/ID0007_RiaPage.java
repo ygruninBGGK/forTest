@@ -55,15 +55,19 @@ public class ID0007_RiaPage {
 		Assert.assertEquals(text5, "Hassle-free"+"\n"+"Easily send money to over 146 countries, no matter where you are");
 		String text6= page.featureIcons_UI.get(2).getText();
 		Assert.assertEquals(text6, "Safe & Secure"+"\n"+"We work around the clock to ensure your money arrives quickly and safely, no matter what.");
-		
-		String txt11 = page.footNote_UI.getText();
-		Assert.assertEquals(txt11, "* Amazon.com is not a sponsor of this promotion. Except as required by law, Amazon.com Gift Cards (\"GCs\") cannot be transferred for value or redeemed for cash. GCs may be used only for purchases of eligible goods on Amazon.com or certain of its affiliated websites. GCs cannot be redeemed for purchases of gift cards. Purchases are deducted from the GC balance. To redeem or view a GC balance, visit \"Your Account\" on Amazon.com. Amazon is not responsible if a GC is lost, stolen, destroyed or used without permission. For complete terms and conditions, see www.amazon.com/gc-legal. GCs are issued by ACI Gift Cards, Inc., a Washington corporation. All Amazon ®, ™ & © are IP of Amazon.com, Inc. or its affiliates. No expiration date or service fees.");
-		String txt12 = page.amazonoffertext_UI.getText();
-		Assert.assertEquals(txt12, "New customers get a $10 Amazon.com gift card*");
-		String txt13 = page.amazonofferlink_UI.getText();
-		Assert.assertEquals(txt13, "Learn More");
-		page.sendmoneybutton_UI.click();
-	    general.wait10sec();
+		page.sendmoneybutton_UI.get(0).click();
+		sendmoney();
+		driver.get(baseUrl+"riamoneytransfer");
+	    page.sendmoneybutton_UI.get(1).click();
+	    sendmoney();
+	    
+	    
+	    
+	    
+	}
+	
+	public void sendmoney() throws InterruptedException {
+    	
 		String txt14 = page.container_UI.getText();
 		Assert.assertEquals(txt14, "We're sorry, registration is not yet available in your country");
 		String txt15 = page.containerParagraph_UI.get(0).getText();
