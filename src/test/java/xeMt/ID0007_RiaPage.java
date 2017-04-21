@@ -56,8 +56,9 @@ public class ID0007_RiaPage {
 		String text6= page.featureIcons_UI.get(2).getText();
 		Assert.assertEquals(text6, "Safe & Secure"+"\n"+"We work around the clock to ensure your money arrives quickly and safely, no matter what.");
 		page.sendmoneybutton_UI.get(0).click();
-		Thread.sleep(2000);
+		general.wait10sec();
 		sendmoney(); 
+		general.wait10sec();
 		driver.get(baseUrl+"riamoneytransfer");
 	    page.sendmoneybutton_UI.get(1).click();
 	    sendmoney();
@@ -68,7 +69,8 @@ public class ID0007_RiaPage {
 	}
 	
 	public void sendmoney() throws InterruptedException {
-    			String txt14 = page.container_UI.getText();
+    	general.wait10sec();		
+		String txt14 = page.container_UI.getText();
 		Assert.assertEquals(txt14, "We're sorry, registration is not yet available in your country");
 		String txt15 = page.containerParagraph_UI.get(0).getText();
 		Assert.assertEquals(txt15, "Currently, only users in the US and Spain may send money (and Australia coming soon!) However, you can still receive money in 146 countries around the world.");
