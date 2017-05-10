@@ -24,7 +24,7 @@ public class ID0007_Flyoutad {
 
 	@Parameters({ "BaseUrl", "browser" })
 	@BeforeClass
-	public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal") String browser)
+	public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox") String browser)
 			throws MalformedURLException, InterruptedException {
 		//usedBrowser = browser;
 		driver = Browsers.getDriver(browser);

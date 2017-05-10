@@ -20,6 +20,7 @@
     	<class name="xe.com.ID0001_RemoveBetaTest"/>
         <class name="xe.com.ID0003_FooterHeader"/>
         <class name="xe.com.ID0006_LoadToolsandServiceBoxes"/>
+        <class name="xe.com.ID0007_Flyoutad"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
