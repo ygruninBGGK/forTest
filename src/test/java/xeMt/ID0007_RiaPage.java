@@ -74,9 +74,7 @@ public class ID0007_RiaPage {
 		Assert.assertEquals(txt14, "We're sorry, registration is not yet available in your country");
 		String txt15 = page.containerParagraph_UI.get(0).getText();
 		Assert.assertEquals(txt15, "Currently, only users in the US and Spain may send money (and Australia coming soon!) However, you can still receive money in 146 countries around the world.");
-		String txt16 = page.containerParagraph_UI.get(1).getText();
-		Assert.assertEquals(txt16, "To be notified when our money transfer service will be available in your country, please enter your email address below.");
-	}
+		}
 	@AfterClass
 
 	public void close() {
