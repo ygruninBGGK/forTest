@@ -39,6 +39,7 @@ import org.testng.annotations.Test;
 //C5222 check  the content under " Why Xe" tab in personal function for 5 regions which are US,CA,UK,AU,NZ. The content under Why Xe is  different for 5 regioons
 //C5223	check the content under " How it works" tab in personal function for 5 regions which are US,CA,UK,AU,NZ
 // C5224	check the content under " Currencies" tab in personal function for 5 regions which are US,CA,UK,AU,NZ
+//	C20228	Country Vanuatu is listed in the wrong continent
 
 public class ID0001_XeMtPersonal {
 
