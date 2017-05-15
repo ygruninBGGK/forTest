@@ -24,7 +24,7 @@ public class ID0007_Flyoutad {
 
 	@Parameters({ "BaseUrl", "browser" })
 	@BeforeClass
-	public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox") String browser)
+	public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal") String browser)
 			throws MalformedURLException, InterruptedException {
 		//usedBrowser = browser;
 		driver = Browsers.getDriver(browser);
@@ -37,14 +37,17 @@ public class ID0007_Flyoutad {
 		
 		driver.get(baseUrl);
 		page.rate_UI.get(2).click();
+		Thread.sleep(2000);
 		page.moneytransferad_UI.click();
 		String txt15 = driver.getCurrentUrl();
 		Assert.assertEquals(txt15,"http://www.xe.com/xemoneytransfer/ca/");
 		driver.get(baseUrl);
 		page.rate_UI.get(2).click();
+		Thread.sleep(2000);
 		String text1 =   page.chartdata_UI.getAttribute("style");
 		Assert.assertTrue(text1.contains("/gen/charts/images/large/EURUSD.png?"));
 		page.inverse_UI.click();
+		Thread.sleep(2000);
 		String text2 =   page.chartdata_UI.getAttribute("style");
 		Assert.assertTrue(text2.contains("/gen/charts/images/large/USDEUR.png?"));
 		page.information_UI.click();
