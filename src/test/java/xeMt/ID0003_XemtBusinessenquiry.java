@@ -29,7 +29,7 @@ public class ID0003_XemtBusinessenquiry {
 	//C9253	Annual Trade Value on Business Sign up
 	@Parameters({ "BaseUrl", "browser" })
 	@BeforeClass
-	public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefoxLocal") String browser) throws MalformedURLException, InterruptedException {
+	public void BaseUrl(@Optional("http://gamma.xe.com/") String url, @Optional("firefox") String browser) throws MalformedURLException, InterruptedException {
 		driver = Browsers.getDriver(browser);
 		general = PageFactory.initElements(driver, General.class);
 		enquiry = PageFactory.initElements(driver, Businessenquiry_UI.class);
