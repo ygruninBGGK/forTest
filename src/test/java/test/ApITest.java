@@ -72,8 +72,7 @@ public class ApITest {
     } 
     
     @Test()
-    public void a_api_negative() throws IOException { 	
-    	 
+    public void a_api_negative() throws IOException { 	 
     	//Request 
     	OkHttpClient client = new OkHttpClient();
     	Request request = new Request.Builder() 

@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="classes" thread-count="4">
+<suite name="Suite" parallel="classes" thread-count="1">
 	
  	<parameter name="browser" value="firefoxLocal" />
   <test name="ttt">
     <classes>
-      <class name="test.ApITest"/>
-      <class name="test.Login_negative"/>
-      <class name="test.Login_positive"/>
-      <class name="test.Signup_negative"/>
-      <class name="test.Signup_positive"/>
-  
+      <class name="klip.WeatherKlip_001"/>
+      <class name="klip.AskNicelyKlip_002"/>
     </classes>
   </test> <!-- Test -->
   

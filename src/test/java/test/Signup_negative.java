@@ -54,7 +54,7 @@ public class Signup_negative {
 	  homepage.pwd_UI.sendKeys("");
 	  homepage.btn_UI.click();
 	  
-	  Assert.assertEquals(homepage.error_UI.getText(),"Please complete the Captcha challenge to prove you are human");
+	  Assert.assertEquals(homepage.error_UI.getText(),"Sorry, you must enter a name to sign up for Goodreads.");
 	 }
   
   

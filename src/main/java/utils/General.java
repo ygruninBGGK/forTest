@@ -26,7 +26,9 @@ public class General {
 
     // open URL method
     public void open(String url) {
-        driver.get(url);
+      driver.get(url);
+  	  driver.manage().window().setSize(new Dimension(1920, 1080));
+      driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); 
     }
     
  // registration logout

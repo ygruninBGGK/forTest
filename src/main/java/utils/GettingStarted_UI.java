@@ -10,7 +10,7 @@ public class GettingStarted_UI {
 	
 		
 		// NewsLetter heading
-	    @FindBy(css = ".headerTitle")
+	    @FindBy(css = "#siteheader .headerTitle")
 		   public WebElement gettingstarted_UI;
 	    
 	   

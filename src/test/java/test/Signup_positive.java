@@ -50,7 +50,7 @@ public class Signup_positive {
 	  driver.get(baseUrl);
 	  driver.manage().window().setSize(new Dimension(1920, 1080));
 	  homepage.name_UI.sendKeys("Yuri");
-	  homepage.email_UI.sendKeys("ygruninasdsad@gmail.com");
+	  homepage.email_UI.sendKeys("222@gmailico.com");
 	  homepage.pwd_UI.sendKeys("123456");
 	  homepage.btn_UI.click();
 	  
